@@ -59,7 +59,7 @@
             android:background="#FFFFFF" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_iniciarsesion"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-250dp"
