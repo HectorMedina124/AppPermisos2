@@ -89,14 +89,6 @@ public class PrefectoInicio extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_SolPer) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
