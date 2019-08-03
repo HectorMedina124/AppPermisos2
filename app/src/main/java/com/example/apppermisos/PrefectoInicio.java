@@ -21,13 +21,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity
+public class PrefectoInicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_prefecto_inicio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.prefecto_inicio, menu);
         return true;
     }
 
@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_per) {
+        if (id == R.id.nav_perp) {
             // Handle the camera action
-        } else if (id == R.id.nav_per2) {
+        } else if (id == R.id.nav_SolPer) {
 
         } else if (id == R.id.nav_slideshow) {
 
