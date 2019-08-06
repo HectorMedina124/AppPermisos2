@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HistorialPermisosActivity"></activity>
         <activity
             android:name=".PrefectoInicio"
             android:label="@string/title_activity_prefecto_inicio"
