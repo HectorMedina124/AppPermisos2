@@ -14,4 +14,11 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_prefecto_inicio">PrefectoInicio</string>
+    <string-array name="per_types_list">
+        <item>Administrativo</item>
+        <item>Personal</item>
+        <item>Familiar</item>
+        <item>Docente</item>
+        <item>Otro</item>
+    </string-array>
 </resources>

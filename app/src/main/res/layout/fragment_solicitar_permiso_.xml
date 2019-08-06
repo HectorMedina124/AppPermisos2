@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Solicitar_permiso_Fragment"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:text="Solicitante:"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/txtnombreuser"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-200dp"
+            android:layout_marginTop="50dp"
+            android:text="Brandon Quiroz Quiroz"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-380dp"
+            android:layout_marginTop="130dp"
+            android:text="Fecha de registro de la solicitud:"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/txtfecha"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="06 de Agosto del 2019"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="-250dp"
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Permiso:"
+            android:layout_marginTop="180dp"
+            android:layout_marginLeft="-250dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_tipoper"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginLeft="-150dp"
+            android:entries="@array/per_types_list"
+            android:background="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Descripcion:"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="-300dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/txtdescripcion"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="-250dp"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Periodo del permiso:"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="-350dp"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroupperiodos"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="470dp"
+            android:layout_marginLeft="-250dp">
+
+            <RadioButton
+                android:id="@+id/radiohoras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Horas"
+                android:textColor="#FFFFFF"/>
+
+            <RadioButton
+                android:id="@+id/radiodias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dias"
+                android:textColor="#FFFFFF"/>
+
+            <RadioButton
+                android:id="@+id/radiosemanas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Semanas"
+                android:textColor="#FFFFFF"/>
+        </RadioGroup>
+        <EditText
+            android:id="@+id/txtcantidad"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="445dp"
+            android:layout_marginLeft=""
+            android:background="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:text="Enviar Solicitud a:"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="-300dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_aprobadores"
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="570dp"
+            android:layout_marginLeft="-250dp"
+            android:background="#FFFFFF">
+        </Spinner>
+
+        <Button
+            android:id="@+id/enviar"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="600dp"
+            android:layout_marginLeft="-350dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:text="ENVIAR"
+            android:background="#269B90"/>
+
+        <Button
+            android:id="@+id/cancelar"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="600dp"
+            android:background="#E6F50E0E"
+            android:text="CANCELAR"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+    </LinearLayout>
+</FrameLayout>
