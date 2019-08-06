@@ -1,5 +1,6 @@
 package com.example.apppermisos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -84,7 +85,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
+        startActivity(intent);
         if (id == R.id.nav_per) {
             // Handle the camera action
         } else if (id == R.id.nav_per2) {
