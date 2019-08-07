@@ -8,84 +8,59 @@
     android:background="@color/colorPrimary"
     tools:context=".RegistroFrag">
 
-    <EditText
-        android:id="@+id/txtPaterno"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="52dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textMaterno"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno" />
-
-    <EditText
-        android:id="@+id/txtCurp"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textContraseña"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.939"
-        app:layout_constraintStart_toEndOf="@+id/textNombre5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtPaterno"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtCurp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Curp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="182dp"
+        android:layout_height="131dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="151dp"
+        android:src="@drawable/user_white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
-        app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/txtCurp"
-        app:layout_constraintVertical_bias="0.565" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="Nombre"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/txtCurp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNombre5" />
-
-    <TextView
-        android:id="@+id/textNombre5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
-        android:text="Curp"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textContraseña" />
 
     <TextView
         android:id="@+id/textPaterno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:text="Apellido Paterno"
         android:textColor="#FFFFFF"
@@ -100,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:text="Apellido Materno"
         android:textColor="#FFFFFF"
@@ -110,75 +85,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
 
-    <TextView
-        android:id="@+id/textMaterno2"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtContraseña"
+        android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:text="Contraseña"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnReg"
+        android:id="@+id/button"
         android:layout_width="126dp"
         android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#269B90"
         android:text="Registrarse"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/txtContraseña"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="52dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnReg"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
-
-    <EditText
-        android:id="@+id/txtMaterno"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtContraseña"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="154dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="619dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

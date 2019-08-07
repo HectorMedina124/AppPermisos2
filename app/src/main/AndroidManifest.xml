@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HistorialPermisosActivity"></activity>
+        <activity
+            android:name=".DocentesActivity"
+            android:label="@string/title_activity_directivos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".HistorialPermisosActivity" />
         <activity
             android:name=".PrefectoInicio"
             android:label="@string/title_activity_prefecto_inicio"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login_Activity" />
         <activity
             android:name=".MainActivity"
