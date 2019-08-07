@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity
         //startActivity(intent);
 
         if (id == R.id.nav_per) {
-            fragment = new PermisosPendietesFragment();
-            fragmentTransaction = true;
+            //fragment = new PermisosPendietesFragment();
+            //fragmentTransaction = true;
         } else if (id == R.id.nav_per2) {
             fragment = new RevisionPermisosFragment();
             fragmentTransaction = true;
