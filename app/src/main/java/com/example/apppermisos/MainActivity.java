@@ -3,6 +3,7 @@ package com.example.apppermisos;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosPendietesFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.view.Menu;
 
@@ -84,9 +86,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
+        boolean fragmentTransaction = false;
+        Fragment fragment = null;
         int id = item.getItemId();
-        Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
+        //startActivity(intent);
+        fragment = new PermisosPendietesFragment();
+        fragmentTransaction = true;
         if (id == R.id.nav_per) {
             // Handle the camera action
         } else if (id == R.id.nav_per2) {
@@ -94,8 +101,23 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+
+
+        if(fragmentTransaction){
+            changeFragment(fragment, item);
+            drawer.closeDrawers();
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void changeFragment(Fragment fragment, MenuItem item){
+        getSupportFragmentManager().beginTransaction().replace(R.id.pricipal, fragment).commit();
+        item.setChecked(true);
+        getSupportActionBar().setTitle(item.getTitle());
     }
 }
