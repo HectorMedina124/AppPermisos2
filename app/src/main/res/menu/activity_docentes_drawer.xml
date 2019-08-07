@@ -9,7 +9,7 @@
             android:icon="@drawable/icono_permisos"
             android:title="Solicitar Permiso" />
         <item
-            android:id="@+id/nav_permisos"
+            android:id="@+id/nav_mispermisos"
             android:icon="@drawable/pendiente"
             android:title="Mis Permisos" />
     </group>
