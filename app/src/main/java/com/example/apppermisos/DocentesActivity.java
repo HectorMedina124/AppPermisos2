@@ -1,6 +1,5 @@
 package com.example.apppermisos;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,13 +21,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity
+public class DocentesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_docentes);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.docentes, menu);
         return true;
     }
 
@@ -85,12 +84,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
-        startActivity(intent);
-        if (id == R.id.nav_per) {
-            // Handle the camera action
-        } else if (id == R.id.nav_per2) {
 
+        if (id == R.id.nav_Solicitar) {
+            // Handle the camera action
+        } else if (id == R.id.nav_mispermisos) {
 
         }
 
