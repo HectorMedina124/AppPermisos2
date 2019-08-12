@@ -73,7 +73,6 @@
             android:layout_height="30dp"
             android:layout_marginTop="210dp"
             android:layout_marginLeft="-150dp"
-            android:entries="@array/per_types_list"
             android:background="#FFFFFF"/>
 
         <TextView
@@ -137,7 +136,6 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginTop="445dp"
-            android:layout_marginLeft=""
             android:background="#FFFFFF"/>
 
         <TextView

@@ -1,6 +1,7 @@
 package com.example.apppermisos;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,7 +11,7 @@ import android.view.View;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-
+import com.example.apppermisos.fragments.PermisosFrag;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,11 +20,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, PermisosFrag.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,17 +87,29 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
-        startActivity(intent);
+        Fragment mifrag=null;
+        boolean select=false;
         if (id == R.id.nav_per) {
-            // Handle the camera action
+            mifrag= new PermisosFrag();
+            setTitle("Permisos");
+            select=true;
+
         } else if (id == R.id.nav_per2) {
 
+
+        }
+        if(select){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,mifrag).commit();
 
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
