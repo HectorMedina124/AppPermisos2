@@ -5,11 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_per"
+            android:id="@+id/nav_permain"
             android:icon="@drawable/list2"
             android:title="Permisos" />
         <item
-            android:id="@+id/nav_per2"
+            android:id="@+id/nav_per2main"
             android:icon="@drawable/list2"
             android:title="Permisos pendientes" />
     </group>

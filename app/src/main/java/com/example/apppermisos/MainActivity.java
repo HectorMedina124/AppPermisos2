@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    FragmentManager fm;
-    Fragment fr;
+    private FragmentManager fm;
+    private Fragment fr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         fm = getSupportFragmentManager();
-        fr = fm.findFragmentById(R.id.fregment_revision_permisos);
+        fr = fm.findFragmentById(R.id.layout_principal);
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity
         //Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
         //startActivity(intent);
 
-        if (id == R.id.nav_per) {
+        if (id == R.id.nav_permain) {
             fragment = new PermisosPendietesFragment();
             fragmentTransaction = true;
-        } else if (id == R.id.nav_per2) {
+        } else if (id == R.id.nav_per2main) {
             fragment = new RevisionPermisosFragment();
             fragmentTransaction = true;
 
