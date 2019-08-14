@@ -2,6 +2,8 @@ package com.example.apppermisos;
 
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosPendietesFragment;
+import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -18,11 +20,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
 
 public class PrefectoInicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private FragmentManager fm;
+    private Fragment fr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,8 @@ public class PrefectoInicio extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+        fm = getSupportFragmentManager();
+        fr = fm.findFragmentById(R.id.layout_principal);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -84,11 +92,14 @@ public class PrefectoInicio extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        boolean fragmentTransaction = false;
+        Fragment fragment = null;
         if (id == R.id.nav_perp) {
-            // Handle the camera action
+           fragment= new PermisosPendietesFragment();
+           fragmentTransaction=true;
         } else if (id == R.id.nav_SolPer) {
-
+            fragment= new Solicitar_permiso_Fragment();
+            fragmentTransaction=true;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
