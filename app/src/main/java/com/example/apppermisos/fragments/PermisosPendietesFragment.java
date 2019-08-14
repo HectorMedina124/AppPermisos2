@@ -39,25 +39,7 @@ public class PermisosPendietesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View perPen =  inflater.inflate(R.layout.fragment_permisos_pendietes, container, false);
-
-        solicitudes = new ArrayList<>();
-        getPerPen();
-
-        Adapter adaptadorPerPen = new AdaptadorPerPen(getContext(),solicitudes);
-        lv_per_pen = perPen.findViewById(R.id.lv_permisos_pen);
-        lv_per_pen.setAdapter((ListAdapter) adaptadorPerPen);
-        lv_per_pen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                //Toast.makeText(getContext(),solicitudes.get(position).toString(),Toast.LENGTH_LONG).show();
-
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.pricipal, new DetallesPermisosFragment());
-                transaction.commit();
-            }
-        });
-        return perPen;
+       return null;
     }
 
 

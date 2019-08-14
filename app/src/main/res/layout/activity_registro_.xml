@@ -22,17 +22,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
         android:id="@+id/textCurp"
-        android:layout_width="389dp"
+        android:layout_width="254dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
         android:background="#FFFFFF"
         android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -107,8 +104,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/txtContraseña"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtContraseña"
@@ -140,5 +139,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContraseña"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.709" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Buscar"
+        app:layout_constraintBottom_toTopOf="@+id/textNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/textCurp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.51" />
 </androidx.constraintlayout.widget.ConstraintLayout>

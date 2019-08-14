@@ -40,8 +40,7 @@ public class RevisionPermisosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //Lista de los permisos que se han otorgado
-        View rev_per =  inflater.inflate(R.layout.fragment_revision_permisos, container, false);
+       View rev_per =  inflater.inflate(R.layout.fragment_revision_permisos, container, false);
 
         solicitudes = new ArrayList<>();
         getPerPen();

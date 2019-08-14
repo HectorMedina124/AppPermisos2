@@ -73,5 +73,6 @@
         android:layout_marginStart="8dp"
         android:hint="Nombre del docente que solicito permiso"
         app:layout_constraintStart_toEndOf="@+id/tv_docente"
-        tools:layout_editor_absoluteY="20dp" />
+        tools:layout_editor_absoluteY="20dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

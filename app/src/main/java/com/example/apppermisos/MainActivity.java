@@ -1,8 +1,9 @@
 package com.example.apppermisos;
 
-import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosPendietesFragment;
+import com.example.apppermisos.fragments.RevisionPermisosFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,11 +20,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private FragmentManager fm;
+    private Fragment fr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,11 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        fm = getSupportFragmentManager();
+        fr = fm.findFragmentById(R.id.layout_principal);
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -46,6 +58,10 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
     }
 
     @Override
@@ -60,8 +76,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+
+       /* if(fr instanceof ) {
+            getMenuInflater().inflate(R.menu.buscador, menu);
+        }else{
+            // Inflate the menu; this adds items to the action bar if it is present.
+        */    getMenuInflater().inflate(R.menu.main, menu);
+        //}
         return true;
     }
 
@@ -84,18 +105,41 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
-        startActivity(intent);
-        if (id == R.id.nav_per) {
-            // Handle the camera action
-        } else if (id == R.id.nav_per2) {
 
+        boolean fragmentTransaction = false;
+        Fragment fragment = null;
+        int id = item.getItemId();
+        //Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
+        //startActivity(intent);
+
+        if (id == R.id.nav_permain) {
+            fragment = new PermisosPendietesFragment();
+            fragmentTransaction = true;
+        } else if (id == R.id.nav_per2main) {
+            fragment = new RevisionPermisosFragment();
+            fragmentTransaction = true;
 
         }
 
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+
+
+        if(fragmentTransaction){
+            changeFragment(fragment, item);
+            drawer.closeDrawers();
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void changeFragment(Fragment fragment, MenuItem item){
+        getSupportFragmentManager().beginTransaction().replace(R.id.pricipal, fragment).commit();
+        item.setChecked(true);
+        getSupportActionBar().setTitle(item.getTitle());
+    }
+
+
 }
