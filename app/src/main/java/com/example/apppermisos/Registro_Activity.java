@@ -29,22 +29,26 @@ import java.util.Map;
 
 public class Registro_Activity extends AppCompatActivity {
     private Button registrar;
-    private EditText curp;
+    private EditText rfc;
     private TextView nom;
     private TextView ap;
     private TextView am;
+    private EditText pass;
+    private Button btnRegistrar;
     private RequestQueue requestQueue;
     private Button btnBuscar;
+    private String clave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_);
-        registrar= findViewById(R.id.btn_registrarse);
-        curp=findViewById(R.id.textCurp);
+        rfc=findViewById(R.id.textCurp);
         nom=findViewById(R.id.textNombre);
         ap=findViewById(R.id.textPaterno);
         am=findViewById(R.id.textMaterno);
+        pass=findViewById(R.id.txtContraseña);
+        btnRegistrar=findViewById(R.id.btn_registrarse);
         btnBuscar=findViewById(R.id.btnBuscar);
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,15 +57,15 @@ public class Registro_Activity extends AppCompatActivity {
             }
         });
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(Registro_Activity.this,Login_Activity.class);
-                startActivity(i);
+                registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
+                        rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
             }
         });
     }
-    public void ejecutarServicio(String url){
+    public void registrar(String url){
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -75,23 +79,14 @@ public class Registro_Activity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_SHORT).show();
 
             }
-        }){
-            @Override
-            protected Map<String,String> getParams() throws AuthFailureError{
-              Map<String,String>parametros=new HashMap<>();
-              parametros.put("curp",curp.getText().toString());
-              return parametros;
-
-            }
-
-        };
+        });
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
     public void buscar(){
-        String curp1=curp.getText().toString();
-        String url="http://puntosingular.mx/app_permisos/ConsultarCurp.php?curp="+curp1;
-        if(!curp1.isEmpty()){
+        String rfc1=rfc.getText().toString();
+        String url="http://puntosingular.mx/app_permisos/ConsultarRfc.php?rfc="+rfc1;
+        if(!rfc1.isEmpty()){
             JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
@@ -102,6 +97,7 @@ public class Registro_Activity extends AppCompatActivity {
                             nom.setText("Nombre: "+jsonObject.getString("nom_per"));
                             ap.setText("Apellido Paterno: "+jsonObject.getString("ap_per"));
                             am.setText("Apellido Materno: "+jsonObject.getString("am_per"));
+                            clave=jsonObject.get("cve_per").toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -111,7 +107,6 @@ public class Registro_Activity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Toast.makeText(Registro_Activity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                    System.out.println("hola");
                 }
             });
             requestQueue= Volley.newRequestQueue(this);
