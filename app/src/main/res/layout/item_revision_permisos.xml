@@ -4,75 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/imagen_usuario"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user" />
+        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tv_docente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/titulos"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Docente: "
+        android:text="@string/docente"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_ii"
+        android:id="@+id/tv_nom_doc"
+        style="@style/texto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:text="Hora inicio permiso:"
+        android:layout_marginTop="5dp"
+        android:hint="@string/nombre_del_docente_que_solicito_permiso"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/tv_docente" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_docente"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_ff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_ii"
+        style="@style/titulos"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:text="Hora fin de permiso:"
+        android:layout_marginTop="5dp"
+        android:text="@string/hora_inicio_permiso"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nom_doc" />
+
+    <TextView
+        android:id="@+id/tv_hfi"
+        style="@style/texto"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:hint="@string/h_o_f_que_inicia_el_permiso"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/tv_ii" />
 
     <TextView
-        android:id="@+id/tv_hfi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:hint="H o F que inicia el permiso"
-        app:layout_constraintStart_toEndOf="@+id/tv_ii"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nom_doc" />
-
-    <TextView
-        android:id="@+id/tv_hff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:hint="H o F que termina el permiso"
-        app:layout_constraintStart_toEndOf="@+id/tv_ff"
+        android:id="@+id/tv_ff"
+        style="@style/titulos"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/hora_fin_de_permiso"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/tv_hfi" />
 
     <TextView
-        android:id="@+id/tv_nom_doc"
+        android:id="@+id/tv_hff"
+        style="@style/texto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="Nombre del docente que solicito permiso"
-        app:layout_constraintStart_toEndOf="@+id/tv_docente"
-        tools:layout_editor_absoluteY="20dp"
+        android:hint="@string/h_o_f_que_termina_el_permiso"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ff"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

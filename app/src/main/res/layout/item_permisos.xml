@@ -10,6 +10,7 @@
         android:id="@+id/fr_item_permiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -23,7 +24,7 @@
                 android:id="@+id/btn_status"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:src="@android:drawable/checkbox_on_background" />
 
             <LinearLayout
@@ -40,21 +41,16 @@
 
                     <TextView
                         android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/titulos"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Permiso tipo: "
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
+                        android:text="Permiso tipo: " />
 
                     <TextView
                         android:id="@+id/tv_tipo_per"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:hint="Tipo del permiso"
-                        android:textColor="@android:color/black" />
+                        style="@style/texto" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -66,21 +62,16 @@
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="sans-serif"
                         android:text="Fecha de solicitud:"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
+                        style="@style/titulos" />
 
                     <TextView
                         android:id="@+id/tv_fecha_sol"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:hint="dd/mm/aaaa"
-                        android:textColor="@android:color/black" />
+                        style="@style/texto" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -92,30 +83,19 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="sans-serif"
                         android:text="Autorizó: "
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
+                        style="@style/titulos"/>
 
                     <TextView
                         android:id="@+id/tv_autorizo_per"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:hint="Persona que autorizo Permiso"
-                        android:textColor="@android:color/black" />
+                        style="@style/texto" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

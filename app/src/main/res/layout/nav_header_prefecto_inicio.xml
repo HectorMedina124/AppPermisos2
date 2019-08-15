@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/side_nav_bar"
@@ -15,22 +16,20 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
-        android:layout_height="98dp"
+        android:layout_height="80dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/user" />
+        tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/titulos"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Prefecto "
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:text="@string/prefecto"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NombrePrefecto" />
+        style="@style/texto"
+        android:hint="@string/nombre_del_prefecto"/>
 
 </LinearLayout>

@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
@@ -19,7 +20,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:src="@drawable/user" />
+            android:contentDescription="@string/imagen_usuario"
+            tools:src="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,26 +31,25 @@
             <TextView
                 android:id="@+id/tv_usuario_sol"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:hint="Nombre del usuario que solicita"
-                android:textColor="@android:color/black" />
+                android:hint="@string/nombre_del_usuario_que_solicita"
+                style="@style/texto" />
 
             <TextView
                 android:id="@+id/tv_tipo_per"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:hint="Tipo de Permiso que solicita"
-                android:textColor="@android:color/black" />
+                android:hint="@string/tipo_de_permiso_que_solicita"
+                style="@style/texto" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/buscador_curp"
             app:srcCompat="@drawable/ic_action_name" />
     </LinearLayout>
 

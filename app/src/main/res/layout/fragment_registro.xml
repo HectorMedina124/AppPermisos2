@@ -8,177 +8,151 @@
     android:background="@color/colorPrimary"
     tools:context=".RegistroFrag">
 
-    <EditText
-        android:id="@+id/txtPaterno"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="52dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textMaterno"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno" />
 
-    <EditText
-        android:id="@+id/txtCurp"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="8dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.939"
-        app:layout_constraintStart_toEndOf="@+id/textNombre5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtPaterno"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
-        app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/txtCurp"
-        app:layout_constraintVertical_bias="0.565" />
-
-    <TextView
-        android:id="@+id/textNombre"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/frameLayout7"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:text="Nombre"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/txtCurp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNombre5" />
+        android:foregroundGravity="center_vertical|center"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="182dp"
+            android:layout_height="131dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/imagen_usuario"
+            tools:srcCompat="@tools:sample/avatars" />
+    </FrameLayout>
+
 
     <TextView
+        style="@style/titulos"
         android:id="@+id/textNombre5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
-        android:text="Curp"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/rfc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
+
+
+    <EditText
+        android:id="@+id/txtCurp"
+        style="@style/cajasTexto"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="29dp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textNombre5"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+
+    <TextView
+        android:id="@+id/textNombre"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNombre5" />
+
+
+    <EditText
+        android:id="@+id/txtNombre"
+        style="@style/cajasTexto"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textNombre"
+        app:layout_constraintTop_toBottomOf="@+id/txtCurp"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textPaterno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="Apellido Paterno"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/apellido_paterno"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNombre" />
 
+    <EditText
+        android:id="@+id/txtPaterno"
+        style="@style/cajasTexto"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textPaterno"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+        tools:ignore="LabelFor" tools:targetApi="o" />
+
+
     <TextView
         android:id="@+id/textMaterno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="Apellido Materno"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
-
-    <TextView
-        android:id="@+id/textMaterno2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="8dp"
-        android:text="Contraseña"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
-
-    <Button
-        android:id="@+id/btnReg"
-        android:layout_width="126dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#269B90"
-        android:text="Registrarse"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/txtContraseña"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
+        style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="52dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnReg"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
+        android:layout_marginTop="35dp"
+        android:text="@string/apellido_materno"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
+
 
     <EditText
         android:id="@+id/txtMaterno"
-        android:layout_width="212dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#ffffff"
-        android:ems="10"
+        style="@style/cajasTexto"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtContraseña"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno" />
+        app:layout_constraintStart_toEndOf="@+id/textMaterno"
+        app:layout_constraintTop_toBottomOf="@+id/txtPaterno"
+        tools:ignore="LabelFor" tools:targetApi="o" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
+
+    <TextView
+        android:id="@+id/textContra"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/contrase_a"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
+
+    <EditText
+        android:id="@+id/txtContraseña"
+        style="@style/cajasTexto"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textContra"
+        app:layout_constraintTop_toBottomOf="@+id/txtMaterno" tools:targetApi="o"
+        tools:ignore="LabelFor" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="154dp"
+        android:layout_marginTop="30dp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContraseña">
+
+        <Button
+            android:id="@+id/btnReg"
+            android:layout_gravity="center"
+            style="@style/style_boton_confirmar"
+            android:text="@string/registrarse" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

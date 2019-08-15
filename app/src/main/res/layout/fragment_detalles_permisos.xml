@@ -1,169 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:padding="10dp"
     tools:context=".DetallesPermisosFragment">
 
-    <LinearLayout
+
+    <FrameLayout
+        android:id="@+id/frameLayout7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center_vertical|center"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/user" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Docente:"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_nombre_docente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Nombre del docente "
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Fecha de Solicitud:"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_fecha_solicitud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Fecha de solicitud del permiso"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tipo de permiso:"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_tipo_permiso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Tipo de permiso solicitado"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:layout_width="182dp"
+            android:layout_height="131dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
+            android:contentDescription="@string/imagen_usuario"
+            tools:srcCompat="@tools:sample/avatars" />
+    </FrameLayout>
 
-            <TextView
-                android:id="@+id/tv_descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Descripcion del permiso"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </FrameLayout>
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/docente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/tv_nombre_docente"
+        style="@style/texto"
+        android:layout_width="150dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/nombre_del_docente"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Duración del permiso: "
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fecha_de_solicitud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            <TextView
-                android:id="@+id/tv_periodo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Periodo de duracion del permiso"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/tv_fecha_solicitud"
+        style="@style/texto"
+        android:layout_width="150dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/fecha_de_solitud"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_docente" />
+
+    <TextView
+        android:id="@+id/textView9"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tipo_de_permiso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/tv_tipo_permiso"
+        style="@style/texto"
+        android:layout_width="150dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/tipo_de_permiso_solicitado"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fecha_solicitud" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:foregroundGravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        tools:layout_editor_absoluteX="10dp">
+
+        <TextView
+            android:id="@+id/tv_descripcion"
+            style="@style/texto"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:hint="@string/descripcion_del_permiso"
+            android:textAlignment="center" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/duraci_n_del_permiso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout8" />
+
+    <TextView
+        android:id="@+id/tv_periodo"
+        style="@style/texto"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/periodo_de_duracion_del_permiso"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout8" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:foregroundGravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
-            <ImageButton
+            <Button
                 android:id="@+id/btn_aprobado"
-                android:layout_width="20dp"
-                android:layout_height="75dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"
-                android:background="#269B90"
-                android:text="Aprobado"
-                android:src="@drawable/abrobado"/>
+                style="@style/style_boton_confirmar"
+                android:layout_marginEnd="20dp"
+                android:text="@string/aprobado" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/btn_rechazado"
-                android:layout_width="20dp"
-                android:layout_height="75dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:text="Denegado"
-                android:textColor="#FFFFFF"
-                android:background="#E6F50E0E"
-                android:src="@drawable/denegado"/>
+                style="@style/style_boton_cancelar"
+                android:text="@string/denegado" />
         </LinearLayout>
-    </LinearLayout>
 
-</FrameLayout>
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
