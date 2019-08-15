@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="220dp"
+            android:layout_width="221dp"
             android:layout_height="220dp"
             android:layout_gravity="center"
             android:contentDescription="@string/imagen_inicio"

@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Todos"
+            android:text="@string/todos"
             style="@style/titulos"/>
 
         <RadioButton
@@ -29,15 +29,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Aprobados"
+            android:text="@string/aprobados"
             style="@style/titulos" />
 
         <RadioButton
             android:id="@+id/rb_denegados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Denegados"
+            android:layout_margin="6dp"
+            android:text="@string/denegados"
             style="@style/titulos" />
 
     </RadioGroup>

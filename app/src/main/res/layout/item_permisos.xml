@@ -18,14 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/btn_status"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:src="@android:drawable/checkbox_on_background" />
+                android:layout_margin="9dp"
+                android:src="@android:drawable/checkbox_on_background"
+                android:contentDescription="@string/imagen_inicio" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -43,13 +45,13 @@
                         android:id="@+id/textView3"
                         style="@style/titulos"
                         android:layout_marginStart="5dp"
-                        android:text="Permiso tipo: " />
+                        android:text="@string/tipoP" />
 
                     <TextView
                         android:id="@+id/tv_tipo_per"
                         android:layout_width="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:hint="Tipo del permiso"
+                        android:hint="@string/tipo_de_permiso"
                         style="@style/texto" />
                 </LinearLayout>
 
@@ -63,14 +65,14 @@
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_marginStart="5dp"
-                        android:text="Fecha de solicitud:"
+                        android:text="@string/fecha_de_solicitud"
                         style="@style/titulos" />
 
                     <TextView
                         android:id="@+id/tv_fecha_sol"
                         android:layout_width="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:hint="dd/mm/aaaa"
+                        android:hint="@string/dd_mm_aaaa"
                         style="@style/texto" />
                 </LinearLayout>
 
@@ -84,14 +86,14 @@
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_marginStart="5dp"
-                        android:text="Autorizó: "
+                        android:text="@string/autoriz"
                         style="@style/titulos"/>
 
                     <TextView
                         android:id="@+id/tv_autorizo_per"
                         android:layout_width="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:hint="Persona que autorizo Permiso"
+                        android:hint="@string/persona_que_autorizo_permiso"
                         style="@style/texto" />
                 </LinearLayout>
             </LinearLayout>

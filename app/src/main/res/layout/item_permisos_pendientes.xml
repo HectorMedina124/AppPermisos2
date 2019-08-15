@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/btn_status"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/imagen_usuario"
             tools:src="@tools:sample/avatars" />
