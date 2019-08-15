@@ -60,8 +60,14 @@ public class Registro_Activity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(pass.getText().toString().isEmpty()){
+                    Toast.makeText(Registro_Activity.this, "Favor de introducir una contraseña", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
                 registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
                         rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
+            }
             }
         });
     }
@@ -85,8 +91,9 @@ public class Registro_Activity extends AppCompatActivity {
     }
     public void buscar(){
         String rfc1=rfc.getText().toString();
-        String url="http://puntosingular.mx/app_permisos/ConsultarRfc.php?rfc="+rfc1;
         if(!rfc1.isEmpty()){
+            String url="http://puntosingular.mx/app_permisos/ConsultarRfc.php?rfc="+rfc1;
+
             JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
@@ -114,6 +121,8 @@ public class Registro_Activity extends AppCompatActivity {
 
         }
         else{
+            Toast.makeText(Registro_Activity.this,"Rfc Incorrecto", Toast.LENGTH_SHORT).show();
+
 
         }
     }
