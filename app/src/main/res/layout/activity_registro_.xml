@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
 
     <EditText
-        android:id="@+id/textCurp"
+        android:id="@+id/textRfc"
         style="@style/cajasTexto"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
@@ -47,13 +47,13 @@
         tools:targetApi="o" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnBuscar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/buscador_curp"
-        app:layout_constraintStart_toEndOf="@+id/textCurp"
+        app:layout_constraintStart_toEndOf="@+id/textRfc"
         app:srcCompat="@android:drawable/ic_menu_search"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="189dp" />
@@ -92,7 +92,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="38dp"
         app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/textCurp" />
+        app:layout_constraintTop_toBottomOf="@+id/textRfc" />
 
     <TextView
         android:id="@+id/tv_ap"

@@ -2,15 +2,14 @@ package com.example.apppermisos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -22,10 +21,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Registro_Activity extends AppCompatActivity {
     private Button registrar;
@@ -36,18 +31,22 @@ public class Registro_Activity extends AppCompatActivity {
     private EditText pass;
     private Button btnRegistrar;
     private RequestQueue requestQueue;
-    private Button btnBuscar;
+    private ImageButton btnBuscar;
     private String clave;
+    private boolean existe;
+    private TextInputLayout pass1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_);
-        rfc=findViewById(R.id.textCurp);
+        rfc=findViewById(R.id.textRfc);
         nom=findViewById(R.id.textNombre);
         ap=findViewById(R.id.textPaterno);
         am=findViewById(R.id.textMaterno);
-        pass=findViewById(R.id.txtContraseña);
+        pass1=findViewById(R.id.txtContraseña);
+        pass=pass1.getEditText();
+
         btnRegistrar=findViewById(R.id.btn_registrarse);
         btnBuscar=findViewById(R.id.btnBuscar);
         btnBuscar.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +74,7 @@ public class Registro_Activity extends AppCompatActivity {
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),"Operacion exitosa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -109,6 +108,7 @@ public class Registro_Activity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    rfc.setEnabled(false);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -118,6 +118,8 @@ public class Registro_Activity extends AppCompatActivity {
             });
             requestQueue= Volley.newRequestQueue(this);
             requestQueue.add(jsonArrayRequest);
+            existe("http://puntosingular.mx/app_permisos/ConsultarUsuario?rfc="+rfc.getText().toString());
+
 
         }
         else{
@@ -125,5 +127,32 @@ public class Registro_Activity extends AppCompatActivity {
 
 
         }
+    }
+    public void existe(String url){
+        StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(),response+" "+existe, Toast.LENGTH_SHORT).show();
+
+                if(response.equals("1")){
+                    existe=true;
+                }
+                else{
+                    existe=false;
+
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }
