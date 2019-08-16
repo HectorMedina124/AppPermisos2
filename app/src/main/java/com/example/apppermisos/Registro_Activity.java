@@ -35,6 +35,8 @@ public class Registro_Activity extends AppCompatActivity {
     private String clave;
     private boolean existe;
     private TextInputLayout pass1;
+    private TextInputLayout rfcInput;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,7 @@ public class Registro_Activity extends AppCompatActivity {
         nom=findViewById(R.id.textNombre);
         ap=findViewById(R.id.textPaterno);
         am=findViewById(R.id.textMaterno);
-        pass1=findViewById(R.id.txtContraseña);
-        pass=pass1.getEditText();
+        pass=findViewById(R.id.txtContraseña);
 
         btnRegistrar=findViewById(R.id.btn_registrarse);
         btnBuscar=findViewById(R.id.btnBuscar);
@@ -59,6 +60,7 @@ public class Registro_Activity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!existe){
                 if(pass.getText().toString().isEmpty()){
                     Toast.makeText(Registro_Activity.this, "Favor de introducir una contraseña", Toast.LENGTH_SHORT).show();
 
@@ -67,6 +69,11 @@ public class Registro_Activity extends AppCompatActivity {
                 registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
                         rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
             }
+                }
+                else{
+                    Toast.makeText(Registro_Activity.this, "El usuario ya existe", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
     }
