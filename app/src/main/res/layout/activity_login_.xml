@@ -31,21 +31,27 @@
         android:id="@+id/textView10"
         style="@style/titulos"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/rfc"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/txt_curp"
+        android:id="@+id/txt_rfcLogin"
         style="@style/cajasTexto"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:autofillHints=""
         android:hint="@string/ingrese_su_rfc"
         android:inputType=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:ignore="MissingConstraints"
@@ -55,23 +61,30 @@
         android:id="@+id/textView11"
         style="@style/titulos"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/contrase_a"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_curp" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_rfcLogin" />
 
     <EditText
-        android:id="@+id/txt_contraseña"
+        android:id="@+id/txt_contraseñaLogin"
         style="@style/cajasTexto"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:hint="@string/ingrese_su_contrase_a"
         android:importantForAutofill="no"
         android:inputType=""
         android:labelFor="@id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
-        tools:ignore="MissingConstraints" tools:targetApi="o" />
+        tools:ignore="MissingConstraints"
+        tools:targetApi="o" />
 
     <FrameLayout
         android:id="@+id/frameLayout4"
@@ -81,7 +94,7 @@
         android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contraseña">
+        app:layout_constraintTop_toBottomOf="@+id/txt_contraseñaLogin">
 
         <Button
             android:id="@+id/btn_iniciarsesion"
@@ -94,8 +107,27 @@
         android:id="@+id/btn_registrar"
         style="@style/texto"
         android:layout_width="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center_horizontal"
         android:text="@string/registrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar"
+        app:layout_constraintVertical_bias="0.384" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,166 +10,100 @@
     <TextView
         android:id="@+id/textView5"
         style="@style/titulos"
-        android:layout_marginTop="272dp"
         android:text="@string/rfc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintBottom_toTopOf="@+id/textNombre"
+        app:layout_constraintEnd_toStartOf="@+id/textRfc"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textRfc"
-        style="@style/cajasTexto"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/ingrese_su_rfc"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007"
-        tools:targetApi="o" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10" />
 
     <ImageButton
         android:id="@+id/btnBuscar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/buscador_curp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textRfc"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10"
         app:srcCompat="@android:drawable/ic_menu_search"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textNombre"
         style="@style/titulos"
-        android:layout_marginBottom="8dp"
         android:text="@string/nombre"
         app:layout_constraintBottom_toTopOf="@+id/textPaterno"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintEnd_toStartOf="@+id/tv_nombre"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRfc"
+        app:layout_constraintVertical_bias="0.508" />
 
     <TextView
         android:id="@+id/textPaterno"
         style="@style/titulos"
-        android:layout_marginTop="392dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
         android:text="@string/apellido_paterno"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textNombre"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textNombre"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="392dp" />
 
     <TextView
         android:id="@+id/textMaterno"
         style="@style/titulos"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
         android:text="@string/apellido_materno"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textPaterno"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textPaterno"
-        app:layout_constraintTop_toBottomOf="@+id/textPaterno"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="442dp" />
 
     <TextView
         android:id="@+id/tv_nombre"
         style="@style/texto"
         android:layout_width="200dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/textRfc"
-        app:layout_constraintVertical_bias="0.052" />
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="340dp" />
 
     <TextView
         android:id="@+id/tv_ap"
         style="@style/texto"
         android:layout_width="200dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textPaterno"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="392dp" />
 
     <TextView
         android:id="@+id/tv_am"
         style="@style/texto"
         android:layout_width="200dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ap"
-        app:layout_constraintVertical_bias="0.107" />
+        tools:layout_editor_absoluteY="442dp" />
 
     <TextView
         android:id="@+id/textView7"
         style="@style/titulos"
-        android:layout_marginBottom="8dp"
         android:text="@string/contrase_a"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textMaterno"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textMaterno"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno"
-        app:layout_constraintVertical_bias="0.194" />
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="517dp" />
 
     <EditText
         android:id="@+id/txtContraseña"
         style="@style/cajasTexto"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="243dp"
+        android:layout_height="46dp"
         android:autofillHints=""
         android:hint="@string/ingrese_su_contrase_a"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/tv_am" />
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="486dp" />
 
     <FrameLayout
         android:id="@+id/frameLayout12"
         android:layout_width="346dp"
         android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContraseña"
-        app:layout_constraintVertical_bias="0.369">
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="601dp">
 
         <Button
             android:id="@+id/btn_registrarse"
@@ -180,12 +114,12 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout10"
         android:layout_width="396dp"
         android:layout_height="222dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBuscar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -196,6 +130,17 @@
             android:contentDescription="TODO"
             tools:srcCompat="@tools:sample/avatars" />
     </FrameLayout>
+
+    <EditText
+        android:id="@+id/textRfc"
+        style="@style/cajasTexto"
+        android:hint="@string/ingrese_su_rfc"
+        android:importantForAutofill="no"
+        app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
