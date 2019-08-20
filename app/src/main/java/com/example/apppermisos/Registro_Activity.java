@@ -45,13 +45,13 @@ public class Registro_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_);
-        rfc=findViewById(R.id.textCurp);
+        rfc=findViewById(R.id.textRfc);
         nom=findViewById(R.id.textNombre);
         ap=findViewById(R.id.textPaterno);
         am=findViewById(R.id.textMaterno);
         pass=findViewById(R.id.txtContraseña);
         btnRegistrar=findViewById(R.id.btn_registrarse);
-        btnBuscar=findViewById(R.id.imageButton);
+        btnBuscar=findViewById(R.id.btnBuscar);
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

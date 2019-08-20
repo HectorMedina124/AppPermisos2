@@ -7,117 +7,12 @@
     android:background="@color/colorPrimary"
     tools:context=".Registro_Activity">
 
-    <TextView
-        android:id="@+id/textView5"
-        style="@style/titulos"
-        android:text="@string/rfc"
-        app:layout_constraintBottom_toTopOf="@+id/textNombre"
-        app:layout_constraintEnd_toStartOf="@+id/textRfc"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout10" />
-
-    <ImageButton
-        android:id="@+id/btnBuscar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/buscador_curp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textRfc"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout10"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textNombre"
-        style="@style/titulos"
-        android:text="@string/nombre"
-        app:layout_constraintBottom_toTopOf="@+id/textPaterno"
-        app:layout_constraintEnd_toStartOf="@+id/tv_nombre"
-        app:layout_constraintHorizontal_bias="0.152"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRfc"
-        app:layout_constraintVertical_bias="0.508" />
-
-    <TextView
-        android:id="@+id/textPaterno"
-        style="@style/titulos"
-        android:layout_marginStart="16dp"
-        android:text="@string/apellido_paterno"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="392dp" />
-
-    <TextView
-        android:id="@+id/textMaterno"
-        style="@style/titulos"
-        android:layout_marginStart="16dp"
-        android:text="@string/apellido_materno"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="442dp" />
-
-    <TextView
-        android:id="@+id/tv_nombre"
-        style="@style/texto"
-        android:layout_width="200dp"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="340dp" />
-
-    <TextView
-        android:id="@+id/tv_ap"
-        style="@style/texto"
-        android:layout_width="200dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="392dp" />
-
-    <TextView
-        android:id="@+id/tv_am"
-        style="@style/texto"
-        android:layout_width="200dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="442dp" />
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/titulos"
-        android:text="@string/contrase_a"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="517dp" />
-
-    <EditText
-        android:id="@+id/txtContraseña"
-        style="@style/cajasTexto"
-        android:layout_width="243dp"
-        android:layout_height="46dp"
-        android:autofillHints=""
-        android:hint="@string/ingrese_su_contrase_a"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="486dp" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout12"
-        android:layout_width="346dp"
-        android:layout_height="18dp"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="601dp">
-
-        <Button
-            android:id="@+id/btn_registrarse"
-            style="@style/style_boton_confirmar"
-            android:layout_height="21dp"
-            android:layout_gravity="center"
-            android:text="@string/registrarse" />
-    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout10"
-        android:layout_width="396dp"
-        android:layout_height="222dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,20 +22,158 @@
             android:id="@+id/imageView6"
             android:layout_width="391dp"
             android:layout_height="169dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/imagen_usuario"
             tools:srcCompat="@tools:sample/avatars" />
     </FrameLayout>
+
+
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/rfc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10" />
+
 
     <EditText
         android:id="@+id/textRfc"
         style="@style/cajasTexto"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/ingrese_su_rfc"
-        android:importantForAutofill="no"
-        app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout10" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10"
+        tools:ignore="TextFields"
+        android:importantForAutofill="no" tools:targetApi="o" />
+
+
+    <ImageButton
+        android:id="@+id/btnBuscar"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/buscador_curp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRfc"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textNombre"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/tv_nombre"
+        style="@style/texto"
+        android:layout_width="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textNombre"
+        app:layout_constraintTop_toBottomOf="@+id/textRfc" />
+
+    <TextView
+        android:id="@+id/textPaterno"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/apellido_paterno"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNombre"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_ap"
+        style="@style/texto"
+        android:layout_width="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/textPaterno"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
+
+
+    <TextView
+        android:id="@+id/textMaterno"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/apellido_materno"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
+
+    <TextView
+        android:id="@+id/tv_am"
+        style="@style/texto"
+        android:layout_width="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/textMaterno"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ap" />
+
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/titulos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/contrase_a"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
+
+
+    <EditText
+        android:id="@+id/txtContraseña"
+        style="@style/cajasTexto"
+        android:layout_width="243dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/ingrese_su_contrase_a"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_am"
+        android:inputType=""
+        android:importantForAutofill="no" tools:targetApi="o" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:paddingBottom="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContraseña">
+
+        <Button
+            android:id="@+id/btn_registrarse"
+            style="@style/style_boton_confirmar"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:text="@string/registrarse" />
+    </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
