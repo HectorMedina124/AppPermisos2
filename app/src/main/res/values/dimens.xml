@@ -5,4 +5,11 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="width_cajas_de_texto">295dp</dimen>
+    <dimen name="height_cajas_de_texto">50dp</dimen>
+    <dimen name="tamaño_texto_titulos">20sp</dimen>
+    <dimen name="tamaño_texto_normal">18sp</dimen>
+    <dimen name="width_botones">150dp</dimen>
+    <dimen name="height_botones">40dp</dimen>
+
 </resources>
