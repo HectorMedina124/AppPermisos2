@@ -12,33 +12,46 @@
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/botones"
         android:gravity="center"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <RadioButton
             android:id="@+id/rb_todos"
+            style="@style/titulos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/todos"
-            style="@style/titulos"/>
+            android:buttonTint="#FFFF"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rb_aprobados"
+            style="@style/titulos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/aprobados"
-            style="@style/titulos" />
+            android:buttonTint="#FFFF"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/rb_denegados"
+            style="@style/titulos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:text="@string/denegados"
-            style="@style/titulos" />
+            android:buttonTint="#FFFF"
+            android:textSize="16sp" />
 
     </RadioGroup>
 

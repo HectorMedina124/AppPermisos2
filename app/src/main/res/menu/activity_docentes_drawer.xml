@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_Solicitar"
-            android:icon="@drawable/icono_permisos"
+            android:icon="@drawable/list2"
             android:title="Solicitar Permiso" />
         <item
             android:id="@+id/nav_mispermisos"
-            android:icon="@drawable/pendiente"
+            android:icon="@drawable/clock"
             android:title="Mis Permisos" />
     </group>
 

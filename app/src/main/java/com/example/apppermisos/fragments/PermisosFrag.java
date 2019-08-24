@@ -6,11 +6,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.R;
+import com.example.apppermisos.Registro_Activity;
+import com.example.apppermisos.objetos.Permiso;
+import com.example.apppermisos.objetos.Persona;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,10 +44,10 @@ public class PermisosFrag extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Persona per;
 
     private OnFragmentInteractionListener mListener;
+    private RequestQueue requestQueue;
 
     public PermisosFrag() {
         // Required empty public constructor
@@ -58,10 +75,58 @@ public class PermisosFrag extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            per = getArguments().getParcelable("Persona");
+            llenarPermisos("http://puntosingular.mx/app_permisos/ConsultarPermisosHistorial?rfc="+per.getRfc());
         }
     }
+
+    private void llenarPermisos(String url) {
+            JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    JSONObject jsonObject = null;
+                    ArrayList<Permiso> permisos=new ArrayList<Permiso>();
+                    for (int i = 0; i < response.length(); i++) {
+                        try {
+                            jsonObject = response.getJSONObject(i);
+                            Permiso permiso=new Permiso();
+//                            permiso.setDesc(jsonObject.getString("Descripcion"));
+//                            Date fechaF=new Date(jsonObject.getString("f_fin_sol"));
+//                            Date fechaI=new Date(jsonObject.getString("f_inicio_sol"));
+//                            Date fechaSol=new Date(jsonObject.getString("f_solicitud"));
+//                            Date fechaAprob=new Date(jsonObject.getString("f_autorizacion"));
+//                            permiso.setFechaFin(fechaF);
+//                            permiso.setFechaInicio(fechaI);
+//                            permiso.setFechaSolicitud(fechaSol);
+//                            permiso.setFechaAutorizacion(fechaAprob);
+                            permiso.setHoraFin(jsonObject.getString("h_fin_sol"));
+                            permiso.setHoraI(jsonObject.getString("h_inicio_sol"));
+                            permiso.setPersonaAutoriza(jsonObject.getString("persona_autoriza"));
+                            permiso.setStatus(jsonObject.getString("estatus_sol"));
+                            permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
+                            permisos.add(permiso);
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    per.setPermisos(permisos);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        requestQueue= Volley.newRequestQueue(getActivity());
+            requestQueue.add(jsonArrayRequest);
+
+
+        }
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ public class Login_Activity extends AppCompatActivity {
     private EditText rfc;
     private EditText pass;
     private RequestQueue requestQueue;
-    private Persona per;
+     Persona per;
     private boolean correcto=false;
     private ProgressBar pb;
 
@@ -55,17 +56,26 @@ public class Login_Activity extends AppCompatActivity {
                             pb.setVisibility(View.GONE);
 
                             if(per.getRol().equals("Director")|| per.getRol().equals("SubDirector")|| per.getRol().equals("Root")){
-                                Intent superior= new Intent(Login_Activity.this,MainActivity.class);
-                                startActivity(superior);
+                                Intent activity= new Intent(Login_Activity.this,MainActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelable("Persona",per);
+                                activity.putExtra("Persona1",per);
+                                startActivity(activity);
 
                             }
-                            else if(per.getRol().equals("Docente")|| per.getRol().equals("Administrativo")){
-                                Intent activity= new Intent(Login_Activity.this,DocentesActivity.class);
+                            else if(per.getRol().equals("Docente")|| per.getRol().equals("Administrativo")) {
+                                Intent activity = new Intent(Login_Activity.this, DocentesActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelable("Persona",per);
+                                activity.putExtra("Persona1",per);
                                 startActivity(activity);
 
                             }
                             else if(per.getRol().equals("Jefe")){
                                 Intent activity= new Intent(Login_Activity.this,PrefectoInicio.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelable("Persona",per);
+                                activity.putExtra("Persona1",per);
                                 startActivity(activity);
 
                             }
