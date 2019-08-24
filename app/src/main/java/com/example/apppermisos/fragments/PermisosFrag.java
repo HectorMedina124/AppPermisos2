@@ -101,13 +101,12 @@ public class PermisosFrag extends Fragment {
 //                            permiso.setFechaAutorizacion(fechaAprob);
                             permiso.setHoraFin(jsonObject.getString("h_fin_sol"));
                             permiso.setHoraI(jsonObject.getString("h_inicio_sol"));
-                            permiso.setPersonaAutoriza(jsonObject.getString("persona_autoriza"));
+                            permiso.setPersonaAutoriza(jsonObject.getString("personaAut"));
                             permiso.setStatus(jsonObject.getString("estatus_sol"));
                             permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
                             permisos.add(permiso);
-
-
                         } catch (JSONException e) {
+                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
@@ -119,6 +118,7 @@ public class PermisosFrag extends Fragment {
                     Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
+
         requestQueue= Volley.newRequestQueue(getActivity());
             requestQueue.add(jsonArrayRequest);
 
