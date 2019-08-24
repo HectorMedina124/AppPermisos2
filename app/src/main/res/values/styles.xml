@@ -31,9 +31,9 @@
     </style>
 
     <style name="cajasTexto">
+        <item name="android:background">@drawable/cajatexto</item>
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:background">#FFFFFF</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
     </style>

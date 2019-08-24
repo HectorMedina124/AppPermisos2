@@ -24,7 +24,7 @@
             android:layout_height="135dp"
             android:layout_gravity="center"
             android:contentDescription="@string/imagen_usuario"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/user_white" />
     </FrameLayout>
 
 
@@ -99,16 +99,13 @@
         android:id="@+id/textContra"
         style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="72dp"
         android:text="@string/contrase_a"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
 
     <EditText
         android:id="@+id/txtContraseña"
@@ -116,12 +113,12 @@
         android:layout_width="211dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="28dp"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toEndOf="@+id/textContra"
         app:layout_constraintTop_toBottomOf="@+id/textMaterno"
         tools:ignore="LabelFor"
@@ -156,12 +153,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtContraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textRfc"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout7"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
 
