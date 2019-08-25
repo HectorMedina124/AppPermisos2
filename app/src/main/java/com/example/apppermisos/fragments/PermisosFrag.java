@@ -26,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -74,10 +75,19 @@ public class PermisosFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Handler hn= new Handler();
+
         if (getArguments() != null) {
             per = getArguments().getParcelable("Persona");
             llenarPermisos("http://puntosingular.mx/app_permisos/ConsultarPermisosHistorial?rfc="+per.getRfc());
         }
+        hn.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getActivity(), per.getPermisos().get(0).getFechaAutorizacion(), Toast.LENGTH_SHORT).show();
+
+            }
+        },500);
     }
 
     private void llenarPermisos(String url) {
@@ -86,19 +96,20 @@ public class PermisosFrag extends Fragment {
                 public void onResponse(JSONArray response) {
                     JSONObject jsonObject = null;
                     ArrayList<Permiso> permisos=new ArrayList<Permiso>();
+                    SimpleDateFormat df= new SimpleDateFormat("yy-MM-dd");
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             jsonObject = response.getJSONObject(i);
                             Permiso permiso=new Permiso();
-//                            permiso.setDesc(jsonObject.getString("Descripcion"));
-//                            Date fechaF=new Date(jsonObject.getString("f_fin_sol"));
-//                            Date fechaI=new Date(jsonObject.getString("f_inicio_sol"));
-//                            Date fechaSol=new Date(jsonObject.getString("f_solicitud"));
-//                            Date fechaAprob=new Date(jsonObject.getString("f_autorizacion"));
-//                            permiso.setFechaFin(fechaF);
-//                            permiso.setFechaInicio(fechaI);
-//                            permiso.setFechaSolicitud(fechaSol);
-//                            permiso.setFechaAutorizacion(fechaAprob);
+                            permiso.setDesc(jsonObject.getString("Descripcion"));
+                            String fechaF=jsonObject.getString("f_fin_sol");
+                            String fechaI=jsonObject.getString("f_inicio_sol");
+                            String fechaSol=jsonObject.getString("f_solicitud");
+                            String fechaAprob=jsonObject.getString("f_autorizacion");
+                            permiso.setFechaFin(fechaF);
+                            permiso.setFechaInicio(fechaI);
+                            permiso.setFechaSolicitud(fechaSol);
+                            permiso.setFechaAutorizacion(fechaAprob);
                             permiso.setHoraFin(jsonObject.getString("h_fin_sol"));
                             permiso.setHoraI(jsonObject.getString("h_inicio_sol"));
                             permiso.setPersonaAutoriza(jsonObject.getString("personaAut"));
