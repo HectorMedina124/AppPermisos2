@@ -14,6 +14,16 @@ public class Solicitud {
     private Time h_fin_sol;
     private Date f_solicitud;
     private Date f_autorizacion;
+
+    public Date getF_aprobacion() {
+        return f_aprobacion;
+    }
+
+    public void setF_aprobacion(Date f_aprobacion) {
+        this.f_aprobacion = f_aprobacion;
+    }
+
+    private Date f_aprobacion;
     private String Persona_autoriza;
     private int cve_per;
     private int estatus_sol;
