@@ -7,14 +7,16 @@
     android:background="@color/colorPrimary"
     tools:context=".Registro_Activity">
 
+
     <FrameLayout
-        android:id="@+id/frameLayout5"
+        android:id="@+id/frameLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:foregroundGravity="center_vertical|center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="84dp">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -25,123 +27,142 @@
             tools:srcCompat="@tools:sample/avatars" />
     </FrameLayout>
 
+
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textNombre5"
         style="@style/titulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:text="@string/rfc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
+
 
     <EditText
         android:id="@+id/textRfc"
         style="@style/cajasTexto"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/ingrese_su_rfc"
+        android:layout_width="228dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
         android:importantForAutofill="no"
-        android:inputType="text"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout5"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/textNombre5"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7"
+        tools:ignore="LabelFor"
         tools:targetApi="o" />
 
-    <ImageButton
-        android:id="@+id/btnBuscar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/buscador_curp"
-        app:layout_constraintStart_toEndOf="@+id/textRfc"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="189dp" />
 
     <TextView
         android:id="@+id/textNombre"
         style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textNombre5" />
+
 
     <TextView
         android:id="@+id/textPaterno"
         style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/apellido_paterno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNombre" />
+
 
     <TextView
         android:id="@+id/textMaterno"
         style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/apellido_materno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPaterno" />
 
-    <TextView
-        android:id="@+id/tv_nombre"
-        style="@style/texto"
-        android:layout_width="200dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="38dp"
-        app:layout_constraintStart_toEndOf="@+id/textNombre"
-        app:layout_constraintTop_toBottomOf="@+id/textRfc" />
 
     <TextView
-        android:id="@+id/tv_ap"
-        style="@style/texto"
-        android:layout_width="200dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="35dp"
-        app:layout_constraintStart_toEndOf="@+id/textPaterno"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
-
-    <TextView
-        android:id="@+id/tv_am"
-        style="@style/texto"
-        android:layout_width="200dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toEndOf="@+id/textMaterno"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ap" />
-
-    <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textContra"
         style="@style/titulos"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/contrase_a"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
         android:id="@+id/txtContraseña"
         style="@style/cajasTexto"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/ingrese_su_contrase_a"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/tv_am" />
+        android:layout_width="211dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="28dp"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toEndOf="@+id/textContra"
+        app:layout_constraintTop_toBottomOf="@+id/textMaterno"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContraseña">
 
         <Button
             android:id="@+id/btn_registrarse"
             style="@style/style_boton_confirmar"
+            android:layout_width="158dp"
+            android:layout_height="33dp"
             android:layout_gravity="center"
             android:text="@string/registrarse" />
     </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/btnBuscar"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtContraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRfc"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

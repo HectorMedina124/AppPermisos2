@@ -2,6 +2,7 @@ package com.example.apppermisos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,9 +23,12 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registro_Activity extends AppCompatActivity {
-    private Button registrar;
     private EditText rfc;
     private TextView nom;
     private TextView ap;
@@ -33,21 +38,21 @@ public class Registro_Activity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private ImageButton btnBuscar;
     private String clave;
-    private boolean existe;
-    private TextInputLayout pass1;
 
+    public  boolean existe;
+    public String k;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_);
+
         rfc=findViewById(R.id.textRfc);
         nom=findViewById(R.id.textNombre);
         ap=findViewById(R.id.textPaterno);
         am=findViewById(R.id.textMaterno);
-        pass1=findViewById(R.id.txtContraseña);
-        pass=pass1.getEditText();
-
+        pass=findViewById(R.id.txtContraseña);
         btnRegistrar=findViewById(R.id.btn_registrarse);
+        btnRegistrar.setEnabled(false);
         btnBuscar=findViewById(R.id.btnBuscar);
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +64,21 @@ public class Registro_Activity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pass.getText().toString().isEmpty()){
-                    Toast.makeText(Registro_Activity.this, "Favor de introducir una contraseña", Toast.LENGTH_SHORT).show();
+                if(!existe){
+                    if(pass.getText().toString().isEmpty()){
+                        Toast.makeText(Registro_Activity.this, "Favor de introducir una contraseña", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else{
+                        registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
+                                rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
+                    }
+                }
+
+                else{
+                    Toast.makeText(Registro_Activity.this, "El usuario ya existe", Toast.LENGTH_SHORT).show();
 
                 }
-                else{
-                registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
-                        rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
-            }
             }
         });
     }
@@ -109,6 +121,8 @@ public class Registro_Activity extends AppCompatActivity {
                         }
                     }
                     rfc.setEnabled(false);
+                    btnRegistrar.setEnabled(true);
+
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -156,3 +170,4 @@ public class Registro_Activity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 }
+
