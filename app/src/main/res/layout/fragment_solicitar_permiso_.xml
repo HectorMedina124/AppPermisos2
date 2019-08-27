@@ -9,6 +9,66 @@
     tools:context=".fragments.Solicitar_permiso_Fragment">
 
 
+    <Spinner
+        android:id="@+id/sp_diaf"
+        android:layout_width="39dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <Spinner
+        android:id="@+id/sp_mesf"
+        android:layout_width="45dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_diai"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <Spinner
+        android:id="@+id/sp_añof"
+        android:layout_width="68dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_mesi"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <Spinner
+        android:id="@+id/sp_horaf"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_añoi"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <Spinner
+        android:id="@+id/sp_minf"
+        android:layout_width="60dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_horai"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <Spinner
+        android:id="@+id/sp_diai"
+        android:layout_width="39dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="81dp"
@@ -109,7 +169,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
 
     <RadioGroup
-        android:id="@+id/radioGroup2"
+        android:id="@+id/rg_periodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -117,57 +177,41 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
-        tools:ignore="MissingConstraints">
-
-        <RadioButton
-            android:id="@+id/radiohoras"
-            style="@style/titulos"
-            android:text="@string/horas" />
-
-        <RadioButton
-            android:id="@+id/radiodias"
-            style="@style/titulos"
-            android:text="@string/dias" />
-
-        <RadioButton
-            android:id="@+id/radiosemanas"
-            style="@style/titulos"
-            android:text="@string/semanas" />
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/txtcantidad"
-        style="@style/caja_peque"
-        android:layout_marginStart="20dp"
-        android:importantForAutofill="no"
-        android:inputType=""
-        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        tools:ignore="LabelFor,MissingConstraints"
-        tools:targetApi="o" />
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView18"
         style="@style/titulos"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="26dp"
         android:text="@string/enviar_solicitud_a"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_aprobadores"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_periodo" />
 
     <Spinner
         android:id="@+id/spinner_aprobadores"
         style="@style/spin"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="172dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/rg_periodo"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints">
 
     </Spinner>
 
     <FrameLayout
+        android:id="@+id/frameLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -185,20 +229,138 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/enviar"
+                android:id="@+id/btn_enviar"
                 style="@style/style_boton_confirmar"
                 android:layout_marginEnd="20dp"
                 android:text="@string/enviar" />
 
             <Button
-                android:id="@+id/cancelar"
+                android:id="@+id/btn_cancelar"
                 style="@style/style_boton_cancelar"
+                android:onClick="cancelarSolicitud"
                 android:text="@string/cancelar" />
         </LinearLayout>
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/fechai"
+        android:textColor="@color/tit"
+        app:layout_constraintBottom_toTopOf="@+id/textView24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/Dia"
+        android:textColor="@color/tit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/Mes"
+        android:textColor="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/Año"
+        android:textColor="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/Hora"
+        android:textColor="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="75dp"
+        android:text="@string/Minutos"
+        android:textColor="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
+
+    <Spinner
+        android:id="@+id/sp_mesi"
+        android:layout_width="45dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_diai"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <Spinner
+        android:id="@+id/sp_añoi"
+        android:layout_width="68dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_mesi"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <Spinner
+        android:id="@+id/sp_horai"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_añoi"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <Spinner
+        android:id="@+id/sp_mini"
+        android:layout_width="60dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/tit"
+        app:layout_constraintStart_toEndOf="@+id/sp_horai"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fechaf"
+        android:textColor="@color/tit"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="513dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
