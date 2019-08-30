@@ -7,6 +7,7 @@
     android:background="@color/colorPrimary"
     tools:context=".fragments.HistorialPermisosFragment">
 
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"

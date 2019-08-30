@@ -82,4 +82,5 @@ public class HistorialPermisosFragment extends Fragment {
         return hpf;
     }
 
+
 }
