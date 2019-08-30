@@ -64,6 +64,7 @@ public class Registro_Activity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(!existe){
                     if(pass.getText().toString().isEmpty()){
                         Toast.makeText(Registro_Activity.this, "Favor de introducir una contraseña", Toast.LENGTH_SHORT).show();
@@ -83,6 +84,7 @@ public class Registro_Activity extends AppCompatActivity {
         });
     }
     public void registrar(String url){
+
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -4,21 +4,12 @@ package com.example.apppermisos.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.apppermisos.AdaptadorPerPen;
-import com.example.apppermisos.DetallesPermisosFragment;
-import com.example.apppermisos.Permiso;
-import com.example.apppermisos.R;
 import com.example.apppermisos.Solicitud;
 
 import java.util.ArrayList;
