@@ -57,9 +57,14 @@
     <string name="descripci_n">Descripción:</string>
     <string name="periodo_del_permiso">Periodo del permiso:</string>
 
-    <string name="horas">Horas</string>
-    <string name="dias">Dias</string>
-    <string name="semanas">Semanas</string>
+    <string name="fechai">Fecha De Inicio</string>
+    <string name="fechaf">Fecha De Fin</string>
+    <string name="Dia">Dia</string>
+    <string name="Mes">Mes</string>
+    <string name="Año">Año</string>
+    <string name="Hora">Hora</string>
+    <string name="Minutos">Minuto</string>
+    <string name="Segundos">Segundo</string>
 
     <string name="enviar_solicitud_a">Enviar Solicitud a:</string>
 
