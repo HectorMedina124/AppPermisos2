@@ -1,11 +1,8 @@
 package com.example.apppermisos.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +13,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.apppermisos.AdaptadorPerPen;
 import com.example.apppermisos.AdaptadorRevisionPermisos;
-import com.example.apppermisos.DetallesPermisosFragment;
-import com.example.apppermisos.Permiso;
 import com.example.apppermisos.R;
-import com.example.apppermisos.Solicitud;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 
 public class RevisionPermisosFragment extends Fragment {

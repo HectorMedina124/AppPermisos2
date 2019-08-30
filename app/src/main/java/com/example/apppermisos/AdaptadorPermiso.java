@@ -8,19 +8,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.apppermisos.objetos.Permiso;
+
 import java.util.ArrayList;
 
 public class AdaptadorPermiso extends ArrayAdapter {
 
 
     private Context contexto;
-    private ArrayList<Solicitud> solicitudes;
+    private ArrayList<Permiso> permisos;
     private ImageView btn_status;
 
-    public AdaptadorPermiso(Context context, ArrayList<Solicitud> solicitudes) {
-        super(context, R.layout.item_permisos, solicitudes);
+    public AdaptadorPermiso(Context context, ArrayList<Permiso> permisos) {
+        super(context, R.layout.item_permisos, permisos);
         this.contexto = context;
-        this.solicitudes = solicitudes;
+        this.permisos = permisos;
     }
 
     @Override
@@ -31,15 +33,15 @@ public class AdaptadorPermiso extends ArrayAdapter {
         btn_status = item.findViewById(R.id.btn_status);
 
         TextView tipo_per= item.findViewById(R.id.tv_tipo_per);
-        tipo_per.setText(solicitudes.get(position).getPermiso().getPermiso_per());
+        tipo_per.setText(permisos.get(position).getTipoPermiso());
         TextView fecha_solicitud = item.findViewById(R.id.tv_fecha_sol);
-        fecha_solicitud.setText((CharSequence) solicitudes.get(position).getF_solicitud());
+        fecha_solicitud.setText(permisos.get(position).getFechaSolicitud());
         TextView persona_autorizo = item.findViewById(R.id.tv_autorizo_per);
-        persona_autorizo.setText(solicitudes.get(position).getPersona_autoriza());
+        persona_autorizo.setText(permisos.get(position).getPersonaAutoriza());
 
-        if(solicitudes.get(position).getEstatus_sol() == 0){
+        if(permisos.get(position).getStatus() == "0"){
             btn_status.setImageResource(R.drawable.pendiente);
-        }else if(solicitudes.get(position).getEstatus_sol() == 1){
+        }else if(permisos.get(position).getStatus() == "1"){
             btn_status.setImageResource(R.drawable.abrobado);
         }else{
             btn_status.setImageResource(R.drawable.denegado);
