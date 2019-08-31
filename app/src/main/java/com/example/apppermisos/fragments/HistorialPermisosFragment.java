@@ -43,8 +43,6 @@ public class HistorialPermisosFragment extends Fragment {
         rb_aprobados = hpf.findViewById(R.id.rb_aprobados);
         rb_denegados = hpf.findViewById(R.id.rb_denegados);
 
-
-
         permisos = new ArrayList<Permiso>();
         //listarTodos();
 

@@ -39,11 +39,11 @@ public class AdaptadorPermiso extends ArrayAdapter {
         TextView persona_autorizo = item.findViewById(R.id.tv_autorizo_per);
         persona_autorizo.setText(permisos.get(position).getPersonaAutoriza());
 
-        if(permisos.get(position).getStatus() == "0"){
+        if(permisos.get(position).getStatus().equals("0")){
             btn_status.setImageResource(R.drawable.pendiente);
-        }else if(permisos.get(position).getStatus() == "1"){
+        }else if(permisos.get(position).getStatus().equals("1")){
             btn_status.setImageResource(R.drawable.abrobado);
-        }else{
+        }else if(permisos.get(position).getStatus().equals("2")){
             btn_status.setImageResource(R.drawable.denegado);
         }
 

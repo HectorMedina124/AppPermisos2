@@ -10,6 +10,10 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -17,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.apppermisos.AdaptadorPermiso;
 import com.example.apppermisos.R;
 import com.example.apppermisos.Registro_Activity;
 import com.example.apppermisos.objetos.Permiso;
@@ -34,6 +39,12 @@ public class PermisosFrag extends Fragment {
     private Persona per;
     private RequestQueue requestQueue;
     private OnFragmentInteractionListener mListener;
+    private RadioButton rb_todos;
+    private RadioButton rb_aprobados;
+    private RadioButton rb_denegados;
+    private ListView lv_solicitudes;
+    private ArrayList<Permiso> permisos;
+    private View todosPer;
 
     public PermisosFrag() {
         // Required empty public constructor
@@ -57,12 +68,13 @@ public class PermisosFrag extends Fragment {
         },500);
     }
 
+    //
     private void llenarPermisos(String url) {
             JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     JSONObject jsonObject = null;
-                    ArrayList<Permiso> permisos=new ArrayList<Permiso>();
+                    permisos=new ArrayList<Permiso>();
                     SimpleDateFormat df= new SimpleDateFormat("yy-MM-dd");
                     for (int i = 0; i < response.length(); i++) {
                         try {
@@ -108,9 +120,69 @@ public class PermisosFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_permisos, container, false);
+        todosPer = inflater.inflate(R.layout.fragment_permisos, container, false);
+        rb_todos = todosPer.findViewById(R.id.rb_todos);
+        rb_aprobados = todosPer.findViewById(R.id.rb_aprobados);
+        rb_denegados = todosPer.findViewById(R.id.rb_denegados);
+
+        rb_todos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),permisos);
+                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
+                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+            }
+        });
+        rb_aprobados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Permiso> aceptados = llenarAprobados(permisos);
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),aceptados);
+                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
+                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+            }
+        });
+        rb_denegados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Permiso> denegados = llenarDenegados(permisos);
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),denegados);
+                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
+                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+            }
+        });
+
+        return todosPer;
     }
 
+
+    public ArrayList<Permiso> llenarPendientes(ArrayList<Permiso> permisos){
+        ArrayList<Permiso> pendientes = new ArrayList<>();
+        for(int i = 0;i<permisos.size();i++){
+            if(permisos.get(i).getStatus().equals("0")){
+                pendientes.add(permisos.get(i));
+            }
+        }
+        return pendientes;
+    }
+    public ArrayList<Permiso> llenarAprobados(ArrayList<Permiso> permisos){
+        ArrayList<Permiso> aceptados = new ArrayList<>();
+        for(int i = 0;i<permisos.size();i++){
+            if(permisos.get(i).getStatus().equals("1")){
+                aceptados.add(permisos.get(i));
+            }
+        }
+        return aceptados;
+    }
+    public ArrayList<Permiso> llenarDenegados(ArrayList<Permiso> permisos){
+        ArrayList<Permiso> denegados = new ArrayList<>();
+        for(int i = 0;i<permisos.size();i++){
+            if(permisos.get(i).getStatus().equals("2")){
+                denegados.add(permisos.get(i));
+            }
+        }
+        return denegados;
+    }
 
 
     @Override

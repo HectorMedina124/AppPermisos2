@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class RevisionPermisosFragment extends Fragment {
 
     private ListView lv_revision_per;
-    private ArrayList<Solicitud> solicitudes;
+    //private ArrayList<Solicitud> solicitudes;
 
     public RevisionPermisosFragment() {
         // Required empty public constructor
@@ -34,28 +34,28 @@ public class RevisionPermisosFragment extends Fragment {
                              Bundle savedInstanceState) {
        View rev_per =  inflater.inflate(R.layout.fragment_revision_permisos, container, false);
 
-        solicitudes = new ArrayList<>();
-        getPerPen();
+        //solicitudes = new ArrayList<>();
+        //getPerPen();
 
-        Adapter adaptadorRevPer = new AdaptadorRevisionPermisos(getContext(),solicitudes);
-        lv_revision_per= rev_per.findViewById(R.id.lv_revision_per);
-        lv_revision_per.setAdapter((ListAdapter) adaptadorRevPer);
-        lv_revision_per.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getContext(),solicitudes.get(position).toString(), Toast.LENGTH_LONG).show();
-            }
-        });
+        //Adapter adaptadorRevPer = new AdaptadorRevisionPermisos(getContext(),solicitudes);
+        //lv_revision_per= rev_per.findViewById(R.id.lv_revision_per);
+        //lv_revision_per.setAdapter((ListAdapter) adaptadorRevPer);
+        //lv_revision_per.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         //   @Override
+           // public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+             //   Toast.makeText(getContext(),solicitudes.get(position).toString(), Toast.LENGTH_LONG).show();
+            //}
+        //});
         return rev_per;
     }
 
 
-    public void getPerPen(){
+  /*  public void getPerPen(){
         Permiso permiso = new Permiso();
         permiso.setNum_sol(1);
         permiso.setPermiso_per("Administrativo");
         solicitudes.add(new Solicitud(1,"GAAS970915MMN01",null,null,null,null,null,null,"Licenciado Juan Romero",1,0,permiso));
         solicitudes.add(new Solicitud(4,"GAAS970915MMN01",null,null,null,null,null,null,"Licenciado Juan Romero",1,0,permiso));
         solicitudes.add(new Solicitud(7,"GAAS970915MMN01",null,null,null,null,null,null,"Licenciado Juan Romero",1,0,permiso));
-    }
+    }*/
 }
