@@ -33,6 +33,8 @@ import java.util.Date;
 public class PermisosFrag extends Fragment {
     private Persona per;
     private RequestQueue requestQueue;
+    private OnFragmentInteractionListener mListener;
+
     public PermisosFrag() {
         // Required empty public constructor
     }
@@ -108,5 +110,30 @@ public class PermisosFrag extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_permisos, container, false);
     }
+
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
+
 
 }

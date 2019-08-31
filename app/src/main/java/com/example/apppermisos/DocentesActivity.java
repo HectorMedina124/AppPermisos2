@@ -5,27 +5,15 @@ import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosFrag;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.os.Handler;
-import android.view.View;
-
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-
 import android.view.MenuItem;
-
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
 import android.view.Menu;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class DocentesActivity extends AppCompatActivity
@@ -110,6 +98,9 @@ public class DocentesActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {

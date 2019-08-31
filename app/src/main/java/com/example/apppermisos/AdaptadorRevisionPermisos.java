@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 public class AdaptadorRevisionPermisos extends ArrayAdapter {
     private Context contexto;
-    private ArrayList<Solicitud> solicitudes;
+    //private ArrayList<Solicitud> solicitudes;
 
-    public AdaptadorRevisionPermisos(Context context, ArrayList<Solicitud> solicitudes) {
-        super(context, R.layout.item_revision_permisos, solicitudes);
+    public AdaptadorRevisionPermisos(Context context /*ArrayList<Solicitud> solicitudes*/) {
+        super(context, R.layout.item_revision_permisos /*solicitudes*/);
         this.contexto = context;
-        this.solicitudes = solicitudes;
+        //this.solicitudes = solicitudes;
     }
 
     @Override
@@ -27,11 +27,11 @@ public class AdaptadorRevisionPermisos extends ArrayAdapter {
 
 
         TextView usuario_solicito= item.findViewById(R.id.tv_nom_doc);
-        usuario_solicito.setText(solicitudes.get(position).getCurp_usu());
+        //usuario_solicito.setText(solicitudes.get(position).getCurp_usu());
         TextView hfi = item.findViewById(R.id.tv_hfi);
-        hfi.setText((CharSequence) solicitudes.get(position).getH_fin_sol());
+        //hfi.setText((CharSequence) solicitudes.get(position).getH_fin_sol());
         TextView hff = item.findViewById(R.id.tv_hff);
-        hff.setText((CharSequence) solicitudes.get(position).getH_fin_sol());
+        //hff.setText((CharSequence) solicitudes.get(position).getH_fin_sol());
         return item;
     }
 }

@@ -7,16 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.apppermisos.objetos.Permiso;
+
 import java.util.ArrayList;
 
 public class AdaptadorPerPen extends ArrayAdapter {
     private Context contexto;
-    private ArrayList<Solicitud> solicitudes;
+    private ArrayList<Permiso> permisos;
 
-    public AdaptadorPerPen(Context context, ArrayList<Solicitud> solicitudes) {
-        super(context, R.layout.item_permisos_pendientes, solicitudes);
+    public AdaptadorPerPen(Context context, ArrayList<Permiso> permisos) {
+        super(context, R.layout.item_permisos_pendientes, permisos);
         this.contexto = context;
-        this.solicitudes = solicitudes;
+        this.permisos = permisos;
     }
 
     @Override
@@ -27,9 +29,9 @@ public class AdaptadorPerPen extends ArrayAdapter {
 
 
         TextView usuario_solicito= item.findViewById(R.id.tv_usuario_sol);
-        usuario_solicito.setText(solicitudes.get(position).getCurp_usu());
+        //usuario_solicito.setText(permisos.get(position).get);
         TextView tipo_per = item.findViewById(R.id.tv_tipo_per);
-        tipo_per.setText(solicitudes.get(position).getPermiso().getPermiso_per());
+        //tipo_per.setText(solicitudes.get(position).getPermiso().getPermiso_per());
 
 
         return item;
