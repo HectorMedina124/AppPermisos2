@@ -7,16 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.apppermisos.objetos.Permiso;
+
 import java.util.ArrayList;
 
 public class AdaptadorRevisionPermisos extends ArrayAdapter {
     private Context contexto;
-    //private ArrayList<Solicitud> solicitudes;
+    private ArrayList<Permiso> permisos;
 
-    public AdaptadorRevisionPermisos(Context context /*ArrayList<Solicitud> solicitudes*/) {
-        super(context, R.layout.item_revision_permisos /*solicitudes*/);
+    public AdaptadorRevisionPermisos(Context context, ArrayList<Permiso> permisos) {
+        super(context, R.layout.item_revision_permisos,permisos);
         this.contexto = context;
-        //this.solicitudes = solicitudes;
+        this.permisos = permisos;
     }
 
     @Override

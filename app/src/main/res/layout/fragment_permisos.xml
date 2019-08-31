@@ -12,9 +12,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/botones"
         android:gravity="center"
         android:orientation="horizontal"
@@ -23,36 +23,37 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-        <RadioButton
-            android:id="@+id/rb_todos"
-            style="@style/titulos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/todos"
-            android:buttonTint="#FFFF"
-            android:textSize="16sp" />
+                <RadioButton
+                    android:id="@+id/rb_todos"
+                    style="@style/titulos_pequeños"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#FFFF"
+                    android:text="@string/todos" />
 
-        <RadioButton
-            android:id="@+id/rb_aprobados"
-            style="@style/titulos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/aprobados"
-            android:buttonTint="#FFFF"
-            android:textSize="16sp" />
+                <RadioButton
+                    android:id="@+id/rb_aprobados"
+                    style="@style/titulos_pequeños"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#FFFF"
+                    android:text="@string/aprobados" />
 
-        <RadioButton
-            android:id="@+id/rb_denegados"
-            style="@style/titulos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:text="@string/denegados"
-            android:buttonTint="#FFFF"
-            android:textSize="16sp" />
+                <RadioButton
+                    android:id="@+id/rb_denegados"
+                    style="@style/titulos_pequeños"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#FFFF"
+                    android:text="@string/denegados" />
 
+                <RadioButton
+                    android:id="@+id/rb_pendientes"
+                    style="@style/titulos_pequeños"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#FFFF"
+                    android:text="@string/pendientes"/>
     </RadioGroup>
 
     <ListView

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class AdaptadorPerPen extends ArrayAdapter {
     private Context contexto;
     private ArrayList<Permiso> permisos;
+    private View item;
 
     public AdaptadorPerPen(Context context, ArrayList<Permiso> permisos) {
         super(context, R.layout.item_permisos_pendientes, permisos);
@@ -25,13 +26,13 @@ public class AdaptadorPerPen extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = LayoutInflater.from(contexto);
-        View item = inflater.inflate(R.layout.item_permisos_pendientes, null);
+        item = inflater.inflate(R.layout.item_permisos_pendientes, null);
 
 
         TextView usuario_solicito= item.findViewById(R.id.tv_usuario_sol);
-        //usuario_solicito.setText(permisos.get(position).get);
+        //usuario_solicito.setText(permisos.get(position).);
         TextView tipo_per = item.findViewById(R.id.tv_tipo_per);
-        //tipo_per.setText(solicitudes.get(position).getPermiso().getPermiso_per());
+        tipo_per.setText(permisos.get(position).getTipoPermiso());
 
 
         return item;

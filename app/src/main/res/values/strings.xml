@@ -90,6 +90,7 @@
     <string name="todos">Todos</string>
     <string name="aprobados">Aprobados</string>
     <string name="denegados">Denegados</string>
+    <string name="pendientes">Pendientes</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

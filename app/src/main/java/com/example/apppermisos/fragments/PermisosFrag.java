@@ -42,6 +42,7 @@ public class PermisosFrag extends Fragment {
     private RadioButton rb_todos;
     private RadioButton rb_aprobados;
     private RadioButton rb_denegados;
+    private RadioButton rb_pendientes;
     private ListView lv_solicitudes;
     private ArrayList<Permiso> permisos,aceptados,denegados;
     private View todosPer;
@@ -124,6 +125,7 @@ public class PermisosFrag extends Fragment {
         rb_todos = todosPer.findViewById(R.id.rb_todos);
         rb_aprobados = todosPer.findViewById(R.id.rb_aprobados);
         rb_denegados = todosPer.findViewById(R.id.rb_denegados);
+        rb_pendientes = todosPer.findViewById(R.id.rb_pendientes);
 
         rb_todos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,8 +138,7 @@ public class PermisosFrag extends Fragment {
         rb_aprobados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ArrayList<Permiso> aceptados = llenarAprobados(permisos);
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarAprobados(permisos));
+               Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarAprobados(permisos));
                 lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
                 lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
             }
@@ -145,8 +146,15 @@ public class PermisosFrag extends Fragment {
         rb_denegados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ArrayList<Permiso> denegados = llenarDenegados(permisos);
                 Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarDenegados(permisos));
+                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
+                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+            }
+        });
+        rb_pendientes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarPendientes(permisos));
                 lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
                 lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
             }

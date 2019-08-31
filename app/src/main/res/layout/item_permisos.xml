@@ -86,7 +86,7 @@
                     android:paddingBottom="5dp">
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/tv_autorizo"
                         style="@style/titulos"
                         android:layout_marginStart="5dp"
                         android:text="@string/autoriz" />

@@ -18,6 +18,7 @@ public class AdaptadorPermiso extends ArrayAdapter {
     private Context contexto;
     private ArrayList<Permiso> permisos;
     private ImageView btn_status;
+    private TextView tv_autorizo;
 
     public AdaptadorPermiso(Context context, ArrayList<Permiso> permisos) {
         super(context, R.layout.item_permisos, permisos);
@@ -39,8 +40,11 @@ public class AdaptadorPermiso extends ArrayAdapter {
         TextView persona_autorizo = item.findViewById(R.id.tv_autorizo_per);
         persona_autorizo.setText(permisos.get(position).getPersonaAutoriza());
 
+        tv_autorizo = item.findViewById(R.id.tv_autorizo);
+
         if(permisos.get(position).getStatus().equals("0")){
             btn_status.setImageResource(R.drawable.pendiente);
+            tv_autorizo.setText("Solicitado a: ");
         }else if(permisos.get(position).getStatus().equals("1")){
             btn_status.setImageResource(R.drawable.abrobado);
         }else if(permisos.get(position).getStatus().equals("2")){

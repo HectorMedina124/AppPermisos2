@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.apppermisos.AdaptadorRevisionPermisos;
 import com.example.apppermisos.R;
+import com.example.apppermisos.objetos.Permiso;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,8 @@ import java.util.ArrayList;
 public class RevisionPermisosFragment extends Fragment {
 
     private ListView lv_revision_per;
-    //private ArrayList<Solicitud> solicitudes;
+    private ArrayList<Permiso> permisos;
+    private View revisionPermisos;
 
     public RevisionPermisosFragment() {
         // Required empty public constructor
@@ -32,21 +34,20 @@ public class RevisionPermisosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View rev_per =  inflater.inflate(R.layout.fragment_revision_permisos, container, false);
+       revisionPermisos =  inflater.inflate(R.layout.fragment_revision_permisos, container, false);
 
-        //solicitudes = new ArrayList<>();
-        //getPerPen();
+        permisos = new ArrayList<>();
 
-        //Adapter adaptadorRevPer = new AdaptadorRevisionPermisos(getContext(),solicitudes);
-        //lv_revision_per= rev_per.findViewById(R.id.lv_revision_per);
-        //lv_revision_per.setAdapter((ListAdapter) adaptadorRevPer);
-        //lv_revision_per.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-         //   @Override
-           // public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-             //   Toast.makeText(getContext(),solicitudes.get(position).toString(), Toast.LENGTH_LONG).show();
-            //}
-        //});
-        return rev_per;
+        Adapter adaptadorRevPer = new AdaptadorRevisionPermisos(getContext(),permisos);
+        lv_revision_per= revisionPermisos.findViewById(R.id.lv_revision_per);
+        lv_revision_per.setAdapter((ListAdapter) adaptadorRevPer);
+        lv_revision_per.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Toast.makeText(getContext(),permisos.get(position).toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+        return revisionPermisos;
     }
 
 
