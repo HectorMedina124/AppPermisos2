@@ -6,4 +6,8 @@
     <color name="tit">#FFFFFF</color>
     <color name="fondoClaro2">#D84315</color>
     <color name="fondoClaro">#452FBDB8</color>
+
+    <color name="button_normal">#929392</color>
+    <color name="button_pressed">#c0c1c0</color>
+    <color name="dialog_divider">@android:color/black</color>
 </resources>

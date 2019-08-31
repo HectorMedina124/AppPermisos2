@@ -93,4 +93,20 @@ public class Permiso {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Permiso{" +
+                "fechaInicio='" + fechaInicio + '\'' +
+                ", fechaFin='" + fechaFin + '\'' +
+                ", horaI='" + horaI + '\'' +
+                ", horaFin='" + horaFin + '\'' +
+                ", fechaSolicitud='" + fechaSolicitud + '\'' +
+                ", personaAutoriza='" + personaAutoriza + '\'' +
+                ", status='" + status + '\'' +
+                ", desc='" + desc + '\'' +
+                ", fechaAutorizacion='" + fechaAutorizacion + '\'' +
+                ", tipoPermiso='" + tipoPermiso + '\'' +
+                '}';
+    }
 }

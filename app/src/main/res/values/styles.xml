@@ -24,6 +24,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
     </style>
+    <style name="titulos_dialogo">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
     <style name="titulos_pequeños">
         <item name="android:textSize">11sp</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -87,6 +93,10 @@
         <item name="android:background">#FFFFFF</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Theme_Dialog_Translucent" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@color/tit</item>
     </style>
 
 </resources>
