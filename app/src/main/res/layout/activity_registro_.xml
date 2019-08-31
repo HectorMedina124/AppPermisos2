@@ -24,7 +24,7 @@
             android:layout_height="135dp"
             android:layout_gravity="center"
             android:contentDescription="@string/imagen_usuario"
-            tools:srcCompat="@drawable/user_white" />
+            android:src="@drawable/user_white" />
     </FrameLayout>
 
 
@@ -49,7 +49,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toEndOf="@+id/textNombre5"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout7"
         tools:ignore="LabelFor"
