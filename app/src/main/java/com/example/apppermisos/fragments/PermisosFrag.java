@@ -43,7 +43,7 @@ public class PermisosFrag extends Fragment {
     private RadioButton rb_aprobados;
     private RadioButton rb_denegados;
     private ListView lv_solicitudes;
-    private ArrayList<Permiso> permisos;
+    private ArrayList<Permiso> permisos,aceptados,denegados;
     private View todosPer;
 
     public PermisosFrag() {
@@ -74,7 +74,7 @@ public class PermisosFrag extends Fragment {
                 @Override
                 public void onResponse(JSONArray response) {
                     JSONObject jsonObject = null;
-                    permisos=new ArrayList<Permiso>();
+                    permisos=new ArrayList<>();
                     SimpleDateFormat df= new SimpleDateFormat("yy-MM-dd");
                     for (int i = 0; i < response.length(); i++) {
                         try {
@@ -136,8 +136,8 @@ public class PermisosFrag extends Fragment {
         rb_aprobados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Permiso> aceptados = llenarAprobados(permisos);
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),aceptados);
+                //ArrayList<Permiso> aceptados = llenarAprobados(permisos);
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarAprobados(permisos));
                 lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
                 lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
             }
@@ -145,8 +145,8 @@ public class PermisosFrag extends Fragment {
         rb_denegados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Permiso> denegados = llenarDenegados(permisos);
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),denegados);
+                //ArrayList<Permiso> denegados = llenarDenegados(permisos);
+                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarDenegados(permisos));
                 lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
                 lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
             }
@@ -166,7 +166,7 @@ public class PermisosFrag extends Fragment {
         return pendientes;
     }
     public ArrayList<Permiso> llenarAprobados(ArrayList<Permiso> permisos){
-        ArrayList<Permiso> aceptados = new ArrayList<>();
+        aceptados = new ArrayList<>();
         for(int i = 0;i<permisos.size();i++){
             if(permisos.get(i).getStatus().equals("1")){
                 aceptados.add(permisos.get(i));
@@ -175,7 +175,7 @@ public class PermisosFrag extends Fragment {
         return aceptados;
     }
     public ArrayList<Permiso> llenarDenegados(ArrayList<Permiso> permisos){
-        ArrayList<Permiso> denegados = new ArrayList<>();
+        denegados = new ArrayList<>();
         for(int i = 0;i<permisos.size();i++){
             if(permisos.get(i).getStatus().equals("2")){
                 denegados.add(permisos.get(i));

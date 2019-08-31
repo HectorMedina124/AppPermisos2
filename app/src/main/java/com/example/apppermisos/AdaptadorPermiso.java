@@ -46,8 +46,6 @@ public class AdaptadorPermiso extends ArrayAdapter {
         }else if(permisos.get(position).getStatus().equals("2")){
             btn_status.setImageResource(R.drawable.denegado);
         }
-
-
         return item;
     }
 
