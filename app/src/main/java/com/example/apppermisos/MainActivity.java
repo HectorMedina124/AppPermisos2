@@ -3,7 +3,7 @@ package com.example.apppermisos;
 import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosPendietesFragment;
-import com.example.apppermisos.fragments.RevisionPermisosFragment;
+//import com.example.apppermisos.fragments.RevisionPermisosFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -116,8 +116,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new PermisosPendietesFragment();
             fragmentTransaction = true;
         } else if (id == R.id.nav_per2main) {
-            fragment = new RevisionPermisosFragment();
-            fragmentTransaction = true;
+//            fragment = new RevisionPermisosFragment();
+//            fragmentTransaction = true;
 
         }
 
