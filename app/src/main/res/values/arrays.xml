@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="per_types_list">per_types_list</string-array>
+    <string-array name="array_horas">
+        <item>07 am</item>
+        <item>08 am</item>
+        <item>09 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+        <item>13 pm</item>
+        <item>14 pm</item>
+        <item>15 pm</item>
+        <item>16 pm</item>
+        <item>17 pm</item>
+        <item>18 pm</item>
+        <item>19 pm</item>
+        <item>20 pm</item>
+        <item>21 pm</item>
+        <item>22 pm</item>
+        <item>23 pm</item>
+    </string-array>
+    <string-array name="array_minutos">
+        <item>00</item>
+        <item>05</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="tipo_permisos">
+        <item>Personal</item>
+        <item>Docente</item>
+        <item>Administrativo</item>
+        <item>Salud</item>
+        <item>Otro</item>
+    </string-array>
+
 </resources>

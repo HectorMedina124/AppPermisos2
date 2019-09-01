@@ -13,12 +13,12 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:id="@+id/imgDocente"
+        android:layout_width="95dp"
+        android:layout_height="75dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        tools:src="@tools:sample/avatars" />
+        android:src="@drawable/user_hombree" />
 
     <TextView
         android:paddingTop="@dimen/nav_header_vertical_spacing"

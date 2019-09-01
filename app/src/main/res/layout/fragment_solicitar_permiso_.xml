@@ -4,370 +4,378 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout9"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     tools:context=".fragments.Solicitar_permiso_Fragment">
 
-
-    <Spinner
-        android:id="@+id/sp_diaf"
-        android:layout_width="39dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-    <Spinner
-        android:id="@+id/sp_mesf"
-        android:layout_width="45dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_diai"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-    <Spinner
-        android:id="@+id/sp_añof"
-        android:layout_width="68dp"
-        android:layout_height="32dp"
+    <ScrollView
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_mesi"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <Spinner
-        android:id="@+id/sp_horaf"
-        android:layout_width="54dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_añoi"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-    <Spinner
-        android:id="@+id/sp_minf"
-        android:layout_width="60dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_horai"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-    <Spinner
-        android:id="@+id/sp_diai"
-        android:layout_width="39dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="13dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="81dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/imagen_usuario"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/textView12"
-        style="@style/titulos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/solicitante"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtnombreuser"
-        style="@style/texto"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:hint="@string/nombre_del_usuario_que_solicita"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView14"
-        style="@style/titulos"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/fecha_de_registro_de_la_solicitud"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/txtfecha"
-        style="@style/texto"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:hint="@string/fecha_del_registro_automaica"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView15"
-        style="@style/titulos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/tipo_de_permiso"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtfecha" />
-
-    <Spinner
-        android:id="@+id/spinner_tipoper"
-        style="@style/spin"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="9dp"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/txtfecha"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView16"
-        style="@style/titulos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/descripci_n"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <EditText
-        android:id="@+id/txtdescripcion"
-        style="@style/caja_descripcion"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="8dp"
-        android:importantForAutofill="no"
-        android:inputType=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        tools:ignore="LabelFor"
-        tools:targetApi="o" />
-
-    <TextView
-        android:id="@+id/textView17"
-        style="@style/titulos"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/periodo_del_permiso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
-
-    <RadioGroup
-        android:id="@+id/rg_periodo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        tools:ignore="MissingConstraints"/>
-
-    <TextView
-        android:id="@+id/textView18"
-        style="@style/titulos"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="26dp"
-        android:text="@string/enviar_solicitud_a"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/spinner_aprobadores"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_periodo" />
-
-    <Spinner
-        android:id="@+id/spinner_aprobadores"
-        style="@style/spin"
-        android:layout_width="172dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/rg_periodo"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints">
-
-    </Spinner>
-
-    <FrameLayout
-        android:id="@+id/frameLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:foregroundGravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp">
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btn_enviar"
-                style="@style/style_boton_confirmar"
-                android:layout_marginEnd="20dp"
-                android:text="@string/enviar" />
+            <Spinner
+                android:id="@+id/sp_horaf"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="244dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/cajatexto"
+                android:entries="@array/array_horas"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_horai" />
 
-            <Button
-                android:id="@+id/btn_cancelar"
-                style="@style/style_boton_cancelar"
-                android:onClick="cancelarSolicitud"
-                android:text="@string/cancelar" />
-        </LinearLayout>
+            <Spinner
+                android:id="@+id/sp_minf"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/cajatexto"
+                android:entries="@array/array_minutos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/sp_horaf"
+                app:layout_constraintTop_toBottomOf="@+id/sp_mini" />
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="81dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/imagen_usuario"
+                android:src="@drawable/solicitar_t"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="284dp"
-        android:layout_marginBottom="17dp"
-        android:text="@string/fechai"
-        android:textColor="@color/tit"
-        app:layout_constraintBottom_toTopOf="@+id/textView24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <TextView
+                android:id="@+id/textView12"
+                style="@style/titulos"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/solicitante"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.177"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/Dia"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            <TextView
+                android:id="@+id/txtnombreuser"
+                style="@style/texto"
+                android:layout_width="251dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:hint="@string/nombre_del_usuario_que_solicita"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.733"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/Mes"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/titulos"
+                android:layout_width="302dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/fecha_de_registro_de_la_solicitud"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/Año"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            <TextView
+                android:id="@+id/txtfecha"
+                style="@style/texto"
+                android:layout_width="336dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:hint="@string/fecha_del_registro_automaica"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="38dp"
-        android:text="@string/Hora"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <TextView
+                android:id="@+id/textView15"
+                style="@style/titulos"
+                android:layout_width="154dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tipo_de_permiso"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtfecha" />
 
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="75dp"
-        android:text="@string/Minutos"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
+            <Spinner
+                android:id="@+id/spinner_tipoper"
+                style="@style/spin"
+                android:layout_width="174dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/cajatexto"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toBottomOf="@+id/txtfecha"
+                tools:ignore="MissingConstraints" />
 
-    <Spinner
-        android:id="@+id/sp_mesi"
-        android:layout_width="45dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="13dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_diai"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+            <TextView
+                android:id="@+id/textView16"
+                style="@style/titulos"
+                android:layout_width="118dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/descripci_n"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <Spinner
-        android:id="@+id/sp_añoi"
-        android:layout_width="68dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_mesi"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+            <EditText
+                android:id="@+id/txtdescripcion"
+                style="@style/caja_descripcion"
+                android:layout_width="342dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/cajatexto"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                tools:ignore="LabelFor"
+                tools:targetApi="o" />
 
-    <Spinner
-        android:id="@+id/sp_horai"
-        android:layout_width="54dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="13dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_añoi"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            <TextView
+                android:id="@+id/textView17"
+                style="@style/titulos"
+                android:layout_width="189dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/periodo_del_permiso"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
 
-    <Spinner
-        android:id="@+id/sp_mini"
-        android:layout_width="60dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="13dp"
-        android:background="@color/tit"
-        app:layout_constraintStart_toEndOf="@+id/sp_horai"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            <RadioGroup
+                android:id="@+id/rg_periodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17"
+                tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="9dp"
-        android:text="@string/fechaf"
-        android:textColor="@color/tit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_diai" />
+            <TextView
+                android:id="@+id/textView18"
+                style="@style/titulos"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="26dp"
+                android:text="@string/enviar_solicitud_a"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_aprobadores"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rg_periodo" />
+
+            <Spinner
+                android:id="@+id/spinner_aprobadores"
+                style="@style/spin"
+                android:layout_width="172dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/cajatexto"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toBottomOf="@+id/rg_periodo"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints">
+
+            </Spinner>
+
+            <FrameLayout
+                android:id="@+id/frameLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:foregroundGravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <Button
+                        android:id="@+id/btn_enviar"
+                        style="@style/style_boton_confirmar"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/enviar" />
+
+                    <Button
+                        android:id="@+id/btn_cancelar"
+                        style="@style/style_boton_cancelar"
+                        android:background="@drawable/bnt_cancelar"
+                        android:text="@string/cancelar" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="104dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="284dp"
+                android:text="@string/fechai"
+                android:textColor="@color/tit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="256dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/Hora"
+                android:textColor="@color/tit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/Minutos"
+                android:textColor="@color/tit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView27"
+                app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
+
+            <Spinner
+                android:id="@+id/sp_horai"
+                android:layout_width="64dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/cajatexto"
+                android:entries="@array/array_horas"
+                app:layout_constraintStart_toEndOf="@id/spinner_date"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <Spinner
+                android:id="@+id/sp_mini"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="33dp"
+                android:background="@drawable/cajatexto"
+                android:entries="@array/array_minutos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/sp_horai"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="112dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/fechaf"
+                android:textColor="@color/tit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_date" />
+
+            <TextView
+                android:id="@+id/spinner_date"
+                style="@android:style/Widget.Material.Light.Spinner"
+                android:layout_width="171dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/cajatexto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="329dp"
+                android:layout_height="86dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
+
+            <TextView
+                android:id="@+id/spinner_datef"
+                style="@android:style/Widget.Material.Light.Spinner"
+                android:layout_width="171dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/cajatexto"
+                app:layout_constraintEnd_toStartOf="@+id/sp_horaf"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

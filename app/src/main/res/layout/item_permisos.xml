@@ -7,11 +7,12 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/fr_item_permiso"
+        android:id="@+id/fr_item_permisoc"
+        style="@style/itemPer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        style="@style/itemPer"
+        android:background="@drawable/items"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">

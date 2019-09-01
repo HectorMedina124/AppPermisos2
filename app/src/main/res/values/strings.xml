@@ -91,6 +91,9 @@
     <string name="aprobados">Aprobados</string>
     <string name="denegados">Denegados</string>
     <string name="pendientes">Pendientes</string>
+    <string name="vacio">No se encuentra ningun permiso registrado</string>
+    <string name="Bienvenido">¡Bienvendio!</string>
+
 
     <string name="aceptar">Aceptar</string>
     <string name="status">Estatus:</string>

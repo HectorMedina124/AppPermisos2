@@ -46,6 +46,8 @@ public class PermisosFrag extends Fragment {
     private ArrayList<Permiso> permisos,aceptados,denegados;
     private View todosPer;
     private Dialog customDialog = null;
+    private boolean tienePermisos;
+    private TextView titulo;
 
     public PermisosFrag() {
         // Required empty public constructor
@@ -62,7 +64,6 @@ public class PermisosFrag extends Fragment {
         hn.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getActivity(), per.getPermisos().get(0).getFechaAutorizacion(), Toast.LENGTH_SHORT).show();
 
             }
         },500);
@@ -94,6 +95,7 @@ public class PermisosFrag extends Fragment {
                             permiso.setStatus(jsonObject.getString("estatus_sol"));
                             permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
                             permisos.add(permiso);
+
                         } catch (JSONException e) {
                             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
@@ -104,7 +106,8 @@ public class PermisosFrag extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+
+                    //Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -118,76 +121,99 @@ public class PermisosFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         todosPer = inflater.inflate(R.layout.fragment_permisos, container, false);
-        rb_todos = todosPer.findViewById(R.id.rb_todos);
-        rb_aprobados = todosPer.findViewById(R.id.rb_aprobados);
-        rb_denegados = todosPer.findViewById(R.id.rb_denegados);
-        rb_pendientes = todosPer.findViewById(R.id.rb_pendientes);
+            rb_todos = todosPer.findViewById(R.id.rb_todos);
+            rb_aprobados = todosPer.findViewById(R.id.rb_aprobados);
+            rb_denegados = todosPer.findViewById(R.id.rb_denegados);
+            rb_pendientes = todosPer.findViewById(R.id.rb_pendientes);
+            titulo= todosPer.findViewById(R.id.tv_permiso);
+            rb_todos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(permisos!=null){
+                    Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), permisos);
+                    lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
+                    lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+                    lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //Toast.makeText(getContext(),permisos.get(i).toString(),Toast.LENGTH_SHORT).show();
+                            mostrar(todosPer, permisos.get(i));
+                        }
+                    });
+                }
+                    else {
+                        titulo.setVisibility(View.VISIBLE);
 
-        rb_todos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),permisos);
-                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
-                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
-                lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                       //Toast.makeText(getContext(),permisos.get(i).toString(),Toast.LENGTH_SHORT).show();
-                        mostrar(todosPer,permisos.get(i));
                     }
-                });
-            }
-        });
-        rb_aprobados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarAprobados(permisos));
-                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
-                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
-                lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        //Toast.makeText(getContext(),llenarAprobados(permisos).get(i).toString(),Toast.LENGTH_SHORT).show();
-                        mostrar(todosPer,llenarAprobados(permisos).get(i));
-                    }
-                });
-            }
-        });
-        rb_denegados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarDenegados(permisos));
-                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
-                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
-                lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        //Toast.makeText(getContext(),llenarDenegados(permisos).get(i).toString(),Toast.LENGTH_SHORT).show();
-                        mostrar(todosPer,llenarDenegados(permisos).get(i));
-                    }
-                });
-            }
-        });
-        rb_pendientes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(),llenarPendientes(permisos));
-                lv_solicitudes= todosPer.findViewById(R.id.lv_permisos);
-                lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
-                lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Toast.makeText(getContext(),llenarPendientes(permisos).get(i).toString(),Toast.LENGTH_SHORT).show();
-                        mostrar(todosPer,llenarPendientes(permisos).get(i));
-                    }
-                });
-            }
-        });
+                }
+            });
+            rb_aprobados.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(permisos!=null){
+                    Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), llenarAprobados(permisos));
+                    lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
+                    lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+                    lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //Toast.makeText(getContext(),llenarAprobados(permisos).get(i).toString(),Toast.LENGTH_SHORT).show();
+                            mostrar(todosPer, llenarAprobados(permisos).get(i));
+                        }
+                    });
+                }
+                else{
+                        titulo.setVisibility(View.VISIBLE);
 
-        return todosPer;
-    }
+                    }
+                }
+            });
+            rb_denegados.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(permisos!=null){
+                    Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), llenarDenegados(permisos));
+                    lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
+                    lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+                    lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //Toast.makeText(getContext(),llenarDenegados(permisos).get(i).toString(),Toast.LENGTH_SHORT).show();
+                            mostrar(todosPer, llenarDenegados(permisos).get(i));
+                        }
+                    });
+                }
+                    else{
+                        titulo.setVisibility(View.VISIBLE);
+
+                    }
+                }
+            });
+            rb_pendientes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(permisos!=null){
+                    Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), llenarPendientes(permisos));
+                    lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
+                    lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+                    lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Toast.makeText(getContext(), llenarPendientes(permisos).get(i).toString(), Toast.LENGTH_SHORT).show();
+                            mostrar(todosPer, llenarPendientes(permisos).get(i));
+                        }
+                    });
+                }
+                    else {
+                        titulo.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+
+            return todosPer;
+        }
+
 
 
     public ArrayList<Permiso> llenarPendientes(ArrayList<Permiso> permisos){

@@ -1,9 +1,11 @@
 package com.example.apppermisos;
 
+import android.app.DatePickerDialog;
 import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosFrag;
+import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
 import com.example.apppermisos.objetos.Persona;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,12 +16,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import android.view.Menu;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DocentesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,PermisosFrag.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener,PermisosFrag.OnFragmentInteractionListener,Solicitar_permiso_Fragment.OnFragmentInteractionListener,DatePickerDialog.OnDateSetListener{
     private Persona per;
     private TextView tvNombre;
+    private ImageView im;
 
 
     @Override
@@ -55,7 +60,11 @@ public class DocentesActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.docentes, menu);
         tvNombre= findViewById(R.id.tvNombreDocente);
         per= getIntent().getParcelableExtra("Persona1");
+        im= findViewById(R.id.imgDocente);
         tvNombre.setText(per.getNombre()+" "+per.getApellidoPaterno()+" "+per.getApellidoMaterno());
+        if(per.getSexo().equals("F")){
+            im.setImageResource(R.drawable.user_mujer);
+        }
         return true;
     }
 
@@ -82,7 +91,8 @@ public class DocentesActivity extends AppCompatActivity
         Fragment fragment=null;
         boolean select=false;
         if (id == R.id.nav_Solicitar) {
-            // Handle the camera action
+            fragment= new Solicitar_permiso_Fragment();
+            select=true;
         } else if (id == R.id.nav_mispermisos) {
             fragment= new PermisosFrag();
             select=true;
@@ -104,6 +114,11 @@ public class DocentesActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
     }
 }

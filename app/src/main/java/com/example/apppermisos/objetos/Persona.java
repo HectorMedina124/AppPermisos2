@@ -12,11 +12,8 @@ public class Persona implements Parcelable {
     private String rol;
     private String rfc;
     private String clave;
+    private String sexo;
     private ArrayList<Permiso>Permisos;
-
-    public void setPermisos(ArrayList<Permiso> permisos) {
-        Permisos = permisos;
-    }
 
     protected Persona(Parcel in) {
         nombre = in.readString();
@@ -25,21 +22,7 @@ public class Persona implements Parcelable {
         rol = in.readString();
         rfc = in.readString();
         clave = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nombre);
-        dest.writeString(apellidoPaterno);
-        dest.writeString(apellidoMaterno);
-        dest.writeString(rol);
-        dest.writeString(rfc);
-        dest.writeString(clave);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        sexo = in.readString();
     }
 
     public static final Creator<Persona> CREATOR = new Creator<Persona>() {
@@ -53,6 +36,12 @@ public class Persona implements Parcelable {
             return new Persona[size];
         }
     };
+
+    public void setPermisos(ArrayList<Permiso> permisos) {
+        Permisos = permisos;
+    }
+
+
 public Persona(){
 }
     public void AgregarPermiso(Permiso permiso){
@@ -110,4 +99,29 @@ public Persona(){
     public void setClave(String clave) {
         this.clave = clave;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(nombre);
+        parcel.writeString(apellidoPaterno);
+        parcel.writeString(apellidoMaterno);
+        parcel.writeString(rol);
+        parcel.writeString(rfc);
+        parcel.writeString(clave);
+        parcel.writeString(sexo);
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 }
+

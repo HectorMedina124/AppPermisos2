@@ -47,7 +47,7 @@ public class Login_Activity extends AppCompatActivity {
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login("http://puntosingular.mx/app_permisos/Login?rfc="+rfc.getText().toString()+"&pass="+pass.getText().toString());
+                login("http://puntosingular.mx/app_permisos/Login?rfc="+rfc.getText().toString()+"&pass="+pass.getText().toString().toUpperCase());
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -119,6 +119,7 @@ public class Login_Activity extends AppCompatActivity {
                             per.setClave(jsonObject.get("cve_per").toString());
                             per.setRfc(rfc1);
                             per.setRol(jsonObject.getString("rol_rol"));
+                            per.setSexo(jsonObject.getString("sexo_per"));
                             correcto=true;
                             Toast.makeText(Login_Activity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
 
