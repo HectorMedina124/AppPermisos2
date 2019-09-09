@@ -36,9 +36,9 @@
         <item>60</item>
     </string-array>
     <string-array name="tipo_permisos">
+        <item>Administrativo</item>
         <item>Personal</item>
         <item>Docente</item>
-        <item>Administrativo</item>
         <item>Salud</item>
         <item>Otro</item>
     </string-array>

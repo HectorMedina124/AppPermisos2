@@ -131,6 +131,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="9dp"
+                android:entries="@array/tipo_permisos"
                 android:background="@drawable/cajatexto"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/txtfecha"
