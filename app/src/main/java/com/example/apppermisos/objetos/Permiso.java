@@ -3,6 +3,7 @@ package com.example.apppermisos.objetos;
 import java.util.Date;
 
 public class Permiso {
+    private int    numSol;
     private String fechaInicio;
     private String fechaFin;
     private String horaI;
@@ -13,6 +14,14 @@ public class Permiso {
     private String desc;
     private String fechaAutorizacion;
     private String tipoPermiso;
+
+    public int getNumSol() {
+        return numSol;
+    }
+
+    public void setNumSol(int numSol) {
+        this.numSol = numSol;
+    }
 
     public String getTipoPermiso() {
         return tipoPermiso;

@@ -55,7 +55,7 @@ public class Login_Activity extends AppCompatActivity {
                         if(correcto){
                             pb.setVisibility(View.GONE);
 
-                            if(per.getRol().equals("Director")|| per.getRol().equals("SubDirector")|| per.getRol().equals("Root")){
+                            if(per.getRol().equals("Director")|| per.getRol().equals("SubDirector")|| per.getRol().equals("Root")|| per.getRol().equals("Jefe")){
                                 Intent activity= new Intent(Login_Activity.this,MainActivity.class);
                                 Bundle bundle = new Bundle();
                                 bundle.putParcelable("Persona",per);
@@ -71,7 +71,7 @@ public class Login_Activity extends AppCompatActivity {
                                 startActivity(activity);
 
                             }
-                            else if(per.getRol().equals("Jefe")){
+                            else if(per.getRol().equals("Prefecto")){
                                 Intent activity= new Intent(Login_Activity.this,PrefectoInicio.class);
                                 Bundle bundle = new Bundle();
                                 bundle.putParcelable("Persona",per);

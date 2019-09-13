@@ -1,9 +1,12 @@
 package com.example.apppermisos;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosPendientesFrag;
 import com.example.apppermisos.fragments.PermisosPendietesFragment;
 //import com.example.apppermisos.fragments.RevisionPermisosFragment;
+import com.example.apppermisos.objetos.Persona;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -24,13 +27,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener {
 
 
     private FragmentManager fm;
     private Fragment fr;
+    private Persona per;
+    private TextView tvNombre;
+    private TextView cargo;
+    private ImageView im;
+    private TextView puesto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +48,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         fm = getSupportFragmentManager();
         fr = fm.findFragmentById(R.id.layout_principal);
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
 
 
 
@@ -76,13 +77,16 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        tvNombre= findViewById(R.id.nom_Dir);
+        per= getIntent().getParcelableExtra("Persona1");
+        im= findViewById(R.id.img_Directivo);
+        tvNombre.setText(per.getNombre()+" "+per.getApellidoPaterno()+" "+per.getApellidoMaterno());
 
-       /* if(fr instanceof ) {
-            getMenuInflater().inflate(R.menu.buscador, menu);
-        }else{
-            // Inflate the menu; this adds items to the action bar if it is present.
-        */    getMenuInflater().inflate(R.menu.main, menu);
-        //}
+        if(per.getSexo().equals("F")){
+            im.setImageResource(R.drawable.user_mujer);
+        }
+
         return true;
     }
 
@@ -104,42 +108,30 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
 
         boolean fragmentTransaction = false;
         Fragment fragment = null;
         int id = item.getItemId();
-        //Intent intent = new Intent(getApplicationContext(),HistorialPermisosActivity.class);
-        //startActivity(intent);
-
         if (id == R.id.nav_permain) {
-            fragment = new PermisosPendietesFragment();
-            fragmentTransaction = true;
+
         } else if (id == R.id.nav_per2main) {
-//            fragment = new RevisionPermisosFragment();
-//            fragmentTransaction = true;
-
+            fragment = new PermisosPendientesFrag();
+            fragmentTransaction = true;
         }
-
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
-
-
         if(fragmentTransaction){
-            changeFragment(fragment, item);
-            drawer.closeDrawers();
+            Bundle bundle= new Bundle();
+            bundle.putParcelable("Persona",per);
+            fragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragment).commit();
         }
-
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void changeFragment(Fragment fragment, MenuItem item){
-        getSupportFragmentManager().beginTransaction().replace(R.id.pricipal, fragment).commit();
-        item.setChecked(true);
-        getSupportActionBar().setTitle(item.getTitle());//K
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
-
-
 }

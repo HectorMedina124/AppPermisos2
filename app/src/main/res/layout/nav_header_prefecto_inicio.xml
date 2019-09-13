@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
@@ -13,12 +14,12 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imgDocente"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:id="@+id/imgPrefecto"
+        android:layout_width="95dp"
+        android:layout_height="75dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        tools:src="@drawable/user_hombree" />
+        app:srcCompat="@drawable/user_hombree" />
 
     <TextView
         style="@style/titulos"
@@ -26,9 +27,9 @@
         android:text="@string/prefecto"/>
 
     <TextView
-        android:id="@+id/tvNombreDocente"
+        android:id="@+id/nom_Prefecto"
         android:layout_width="wrap_content"
         style="@style/texto"
-        android:hint="@string/nombre_del_prefecto"/>
+        android:text="@string/nombre_del_prefecto" />
 
 </LinearLayout>
