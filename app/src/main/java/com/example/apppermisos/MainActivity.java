@@ -32,8 +32,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener {
-
-
     private FragmentManager fm;
     private Fragment fr;
     private Persona per;
@@ -58,11 +56,6 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
-
     }
 
     @Override
@@ -78,15 +71,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        tvNombre= findViewById(R.id.nom_Dir);
+        tvNombre= findViewById(R.id.nom_Directivo);
         per= getIntent().getParcelableExtra("Persona1");
-        im= findViewById(R.id.img_Directivo);
+        im= findViewById(R.id.img_Dir);
         tvNombre.setText(per.getNombre()+" "+per.getApellidoPaterno()+" "+per.getApellidoMaterno());
 
         if(per.getSexo().equals("F")){
             im.setImageResource(R.drawable.user_mujer);
         }
-
         return true;
     }
 
@@ -122,14 +114,12 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle= new Bundle();
             bundle.putParcelable("Persona",per);
             fragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragment).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.layout_principal,fragment).commit();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
     @Override
     public void onFragmentInteraction(Uri uri) {
 

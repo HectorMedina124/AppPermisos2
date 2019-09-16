@@ -14,7 +14,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/img_Directivo"
+        android:id="@+id/img_Dir"
         android:layout_width="95dp"
         android:layout_height="75dp"
         android:contentDescription="@string/nav_header_desc"
@@ -30,7 +30,7 @@
         android:text="@string/directivo" />
 
     <TextView
-        android:id="@+id/nom_Dir"
+        android:id="@+id/nom_Directivo"
         style="@style/texto"
         android:layout_width="wrap_content"
         android:text="@string/nombre_del_directivo" /> />
