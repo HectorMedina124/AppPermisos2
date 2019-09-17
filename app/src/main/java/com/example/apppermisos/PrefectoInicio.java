@@ -1,5 +1,6 @@
 package com.example.apppermisos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosPendietesFragment;
@@ -100,6 +101,12 @@ public class PrefectoInicio extends AppCompatActivity
         } else if (id == R.id.nav_SolPer) {
             fragment= new Solicitar_permiso_Fragment();
             fragmentTransaction=true;
+        }else if(id== R.id.nav_cerrarSesion){
+            Intent i = new Intent(this,Login_Activity.class);
+            startActivity(i);
+            finish();
+        }else if(id == R.id.nav_contraseña){
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -1,6 +1,7 @@
 package com.example.apppermisos;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -96,6 +97,11 @@ public class DocentesActivity extends AppCompatActivity
         } else if (id == R.id.nav_mispermisos) {
             fragment= new PermisosFrag();
             select=true;
+        }else if(id== R.id.nav_cerrarSesion){
+            Intent i = new Intent(this,Login_Activity.class);
+            startActivity(i);
+            finish();
+        }else if(id == R.id.nav_contraseña){
 
         }
         if(select){

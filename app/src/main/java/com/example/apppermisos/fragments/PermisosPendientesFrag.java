@@ -173,7 +173,5 @@ public class PermisosPendientesFrag extends Fragment {
 
         requestQueue= Volley.newRequestQueue(getActivity());
         requestQueue.add(jsonArrayRequest);
-
-
     }
 }

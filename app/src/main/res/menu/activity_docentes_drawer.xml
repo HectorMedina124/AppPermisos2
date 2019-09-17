@@ -12,6 +12,14 @@
             android:id="@+id/nav_mispermisos"
             android:icon="@drawable/clock"
             android:title="Mis Permisos" />
+        <item
+            android:id="@+id/nav_contraseña"
+            android:icon="@drawable/lock"
+            android:title="Cambiar Contraseña"/>
+        <item
+            android:id="@+id/nav_cerrarSesion"
+            android:icon="@drawable/logout"
+            android:title="Cerrar Sesión"/>
     </group>
 
 </menu>

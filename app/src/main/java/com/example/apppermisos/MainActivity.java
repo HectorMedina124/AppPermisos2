@@ -1,5 +1,6 @@
 package com.example.apppermisos;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -109,6 +110,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_per2main) {
             fragment = new PermisosPendientesFrag();
             fragmentTransaction = true;
+        }else if(id== R.id.nav_cerrarSesion){
+            Intent i = new Intent(this,Login_Activity.class);
+            startActivity(i);
+            finish();
+        }else if(id == R.id.nav_contraseña){
+
         }
         if(fragmentTransaction){
             Bundle bundle= new Bundle();
