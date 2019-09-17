@@ -10,6 +10,10 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -17,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.apppermisos.AdaptadorPerPen;
+import com.example.apppermisos.AdaptadorPermiso;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Permiso;
 import com.example.apppermisos.objetos.Persona;
@@ -35,6 +41,8 @@ public class PermisosPendientesFrag extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private RequestQueue requestQueue;
+    private View permisosP;
+    private ListView listaP;
 
     public PermisosPendientesFrag() {
         // Required empty public constructor
@@ -43,6 +51,7 @@ public class PermisosPendientesFrag extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Handler hn= new Handler();
+        permisos=new ArrayList<>();
         if (getArguments() != null) {
             per = getArguments().getParcelable("Persona");
             obtenerPermisosPendientes("http://puntosingular.mx/app_permisos/ConsultarPermisosPendientes?cve_per="+per.getClave());
@@ -53,7 +62,8 @@ public class PermisosPendientesFrag extends Fragment {
                 Toast.makeText(getActivity(),permisos.get(0).toString(),Toast.LENGTH_SHORT).show();
 
             }
-        },500);
+        },1000);
+
 
     }
 
@@ -61,7 +71,23 @@ public class PermisosPendientesFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_permisos_pendientes, container, false);
+        permisosP=inflater.inflate(R.layout.fragment_permisos_pendientes, container, false);
+        Handler hn= new Handler();
+        hn.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Adapter adaptadorPermisos = new AdaptadorPerPen(getContext(), permisos);
+                listaP= permisosP.findViewById(R.id.listPermisosPendientes);
+                listaP.setAdapter((ListAdapter) adaptadorPermisos);
+                listaP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+                });
+            }
+        },500);
+        return permisosP;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -125,7 +151,7 @@ public class PermisosPendientesFrag extends Fragment {
                         permiso.setFechaAutorizacion(fechaAprob);
                         permiso.setHoraFin(jsonObject.getString("h_fin_sol"));
                         permiso.setHoraI(jsonObject.getString("h_inicio_sol"));
-                        permiso.setPersonaAutoriza(jsonObject.getString("personaAut"));
+                        permiso.setPersonaSolicita(jsonObject.getString("personaSol"));
                         permiso.setStatus(jsonObject.getString("estatus_sol"));
                         permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
                         permisos.add(permiso);

@@ -14,6 +14,15 @@ public class Permiso {
     private String desc;
     private String fechaAutorizacion;
     private String tipoPermiso;
+    private String personaSolicita;
+
+    public String getPersonaSolicita() {
+        return personaSolicita;
+    }
+
+    public void setPersonaSolicita(String personaSolicita) {
+        this.personaSolicita = personaSolicita;
+    }
 
     public int getNumSol() {
         return numSol;
