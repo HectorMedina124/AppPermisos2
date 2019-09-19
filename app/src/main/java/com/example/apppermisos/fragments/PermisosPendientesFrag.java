@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.AdaptadorPerPen;
 import com.example.apppermisos.AdaptadorPermiso;
+import com.example.apppermisos.DetallesPermisosFragment;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Permiso;
 import com.example.apppermisos.objetos.Persona;
@@ -60,7 +62,6 @@ public class PermisosPendientesFrag extends Fragment {
             @Override
             public void run() {
                 Toast.makeText(getActivity(),permisos.get(0).toString(),Toast.LENGTH_SHORT).show();
-
             }
         },1000);
 
@@ -82,7 +83,13 @@ public class PermisosPendientesFrag extends Fragment {
                 listaP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                        Fragment fragment= new DetallesPermisosFragment();
+                        Bundle b = new Bundle();
+                        b.putParcelable("Persona",per);
+                        b.putInt("indice",i);
+                        fragment.setArguments(b);
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_principal,fragment).commit();
+                        Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste "+permisos.get(i), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -113,17 +120,6 @@ public class PermisosPendientesFrag extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

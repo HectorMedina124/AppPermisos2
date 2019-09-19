@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle= new Bundle();
             bundle.putParcelable("Persona",per);
             fragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().add(R.id.layout_principal,fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.layout_principal,fragment).commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

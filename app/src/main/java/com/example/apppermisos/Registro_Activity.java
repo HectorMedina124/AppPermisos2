@@ -72,7 +72,7 @@ public class Registro_Activity extends AppCompatActivity {
                     }
                     else{
                         registrar("http://puntosingular.mx/app_permisos/Registrar?rfc="+
-                                rfc.getText().toString()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
+                                rfc.getText().toString().toUpperCase()+"&password="+pass.getText().toString()+"&clavePersona="+clave);
                     }
                 }
 

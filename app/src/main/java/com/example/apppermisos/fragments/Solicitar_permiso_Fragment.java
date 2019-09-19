@@ -1,6 +1,7 @@
 package com.example.apppermisos.fragments;
 
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -28,11 +29,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.apppermisos.DetallesPermisosFragment;
 import com.example.apppermisos.DocentesActivity;
-import com.example.apppermisos.Login_Activity;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +47,6 @@ import java.util.Date;
 public class Solicitar_permiso_Fragment extends Fragment {
     private Persona per;
     private Persona per2;
-    private boolean correcto;
     private TextView  solicitante;
     private TextView fechaSolicitud;
     private Spinner tipoPermiso;
@@ -66,7 +65,6 @@ public class Solicitar_permiso_Fragment extends Fragment {
     private String rfc2;
     private PermisosFrag.OnFragmentInteractionListener mListener;
     private ArrayList<String> nombres;
-    private View vista;
 
     public Solicitar_permiso_Fragment() {
         // Required empty public constructor
@@ -81,7 +79,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        vista=inflater.inflate(R.layout.fragment_solicitar_permiso_, container, false);
+        View vista=inflater.inflate(R.layout.fragment_solicitar_permiso_, container, false);
         solicitante=vista.findViewById(R.id.txtnombreuser);
         fechaSolicitud=vista.findViewById(R.id.txtfecha);
         tipoPermiso=vista.findViewById(R.id.spinner_tipoper);
@@ -105,14 +103,14 @@ public class Solicitar_permiso_Fragment extends Fragment {
         han.postDelayed(new Runnable() {
             @Override
             public void run() {
-                nombres= new ArrayList<>();
+              nombres= new ArrayList<String>();
                 for(int i=0;i<aprobadores.size();i++){
                     nombres.add(aprobadores.get(i).getNombre()+" "+aprobadores.get(i).getApellidoPaterno()+" "+aprobadores.get(i).getApellidoMaterno());
                 }
-                ArrayAdapter<String> items= new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,nombres);
+                ArrayAdapter<String> items= new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,nombres);
                 destinatario.setAdapter(items);
             }
-        },5000);
+        },2000);
 
 
         fechaini.setOnClickListener(new View.OnClickListener() {
@@ -176,13 +174,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //getActivity().onBackPressed();
-                Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
-                Intent activity = new Intent(getContext(), DocentesActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("Persona",per);
-                activity.putExtra("Persona1",per);
-                startActivity(activity);
+               getActivity().getSupportFragmentManager().beginTransaction().remove(getActivity().getSupportFragmentManager().findFragmentById(R.id.content_Docentes)).commit();
             }
         });
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -191,6 +183,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
                 int aprobador=Integer.parseInt(destinatario.getSelectedItemId()+"");
                 rfc2=aprobadores.get(aprobador).getClave();
                 hacerSolicitud("http://puntosingular.mx/app_permisos/hacersolicitud?rfcsolicitante="+per.getRfc()+"&fechaini="+fechaini.getText().toString()+"&fechafin="+fechafin.getText().toString()+"&horaI="+horaInicio.getSelectedItem().toString().substring(0,2)+":"+minutoInicio.getSelectedItem().toString()+":00"+"&horaF="+horaFin.getSelectedItem().toString().substring(0,2)+":"+minutoFin.getSelectedItem().toString()+":00"+"&fechasolicitud=curdate()&fechaAprobacion=null&cveAutoriza="+rfc2+"&tipopermiso="+(tipoPermiso.getSelectedItemId()+1)+"&descripcion="+descripcion.getText().toString()+"");
+                System.out.println("http://puntosingular.mx/app_permisos/hacersolicitud?rfcsolicitante="+per.getRfc()+"&fechaini="+fechaini.getText().toString()+"&fechafin="+fechafin.getText().toString()+"&horaI="+horaInicio.getSelectedItem().toString().substring(0,2)+":"+minutoInicio.getSelectedItem().toString()+":00"+"&horaF="+horaFin.getSelectedItem().toString().substring(0,2)+":"+minutoFin.getSelectedItem().toString()+":00"+"&fechasolicitud=curdate()&fechaAprobacion=null&cveAutoriza="+rfc2+"&tipopermiso="+(tipoPermiso.getSelectedItemId()+1)+"&descripcion="+descripcion.getText().toString()+"");
             }
         });
         return vista;
@@ -200,7 +193,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
-                aprobadores= new ArrayList<>();
+                aprobadores= new ArrayList<Persona>();
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
@@ -232,20 +225,12 @@ public class Solicitar_permiso_Fragment extends Fragment {
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
-                esperar(5);
-                Intent activity = new Intent(getContext(), DocentesActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("Persona",per);
-                activity.putExtra("Persona1",per);
-                startActivity(activity);
+                Toast.makeText(getContext(),"Su solicitud ah sido registrada",Toast.LENGTH_LONG).show();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), "Error al registrar Solicitud "+error.toString(), Toast.LENGTH_SHORT).show();
-                //Snackbar.make(getView(), "Error al registrar solicitud", Snackbar.LENGTH_SHORT).show();
-                correcto=false;
             }
         });
         requestQueue= Volley.newRequestQueue(getContext());
@@ -272,14 +257,6 @@ public class Solicitar_permiso_Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public static void esperar(int segundos){
-        try {
-            Thread.sleep(segundos * 1000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 
 }

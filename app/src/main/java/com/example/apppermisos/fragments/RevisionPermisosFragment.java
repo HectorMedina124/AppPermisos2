@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class RevisionPermisosFragment extends Fragment {
         lv_revision_per.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getContext(),permisos.get(position).toString(), Toast.LENGTH_LONG).show();
+
             }
         });
         return revisionPermisos;

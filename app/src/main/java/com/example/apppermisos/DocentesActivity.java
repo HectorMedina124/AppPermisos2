@@ -97,7 +97,7 @@ public class DocentesActivity extends AppCompatActivity
         } else if (id == R.id.nav_mispermisos) {
             fragment= new PermisosFrag();
             select=true;
-        }else if(id== R.id.nav_cerrarSesion){
+        }else if(id == R.id.nav_cerrarSesion){
             Intent i = new Intent(this,Login_Activity.class);
             startActivity(i);
             finish();

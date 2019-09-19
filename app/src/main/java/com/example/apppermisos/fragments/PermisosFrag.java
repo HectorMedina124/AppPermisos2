@@ -291,7 +291,7 @@ public class PermisosFrag extends Fragment {
         //establecemos el contenido de nuestro dialog
         customDialog.setContentView(R.layout.cuadro_de_dialogo);
 
-        ImageView imagen = customDialog.findViewById(R.id.imageView3);
+        ImageView imagen = customDialog.findViewById(R.id.im_revisionP);
         TextView titulo = (TextView) customDialog.findViewById(R.id.titulo);
         titulo.setText("Detalles permiso");
         TextView solicitante = customDialog.findViewById(R.id.txtnombreuser);
@@ -311,7 +311,7 @@ public class PermisosFrag extends Fragment {
         nombre.setText(nom);
         TextView fechaSolicitud = customDialog.findViewById(R.id.txtfecha);
         fechaSolicitud.setText(permiso.getFechaSolicitud());
-        TextView tipoPermiso = customDialog.findViewById(R.id.tv_tipo_permiso);
+        TextView tipoPermiso = customDialog.findViewById(R.id.tv_tipo_permiso_r);
         tipoPermiso.setText(permiso.getTipoPermiso());
         TextView fechaInicio = customDialog.findViewById(R.id.tv_fecha_inicio);
         fechaInicio.setText(permiso.getFechaInicio());
@@ -323,7 +323,7 @@ public class PermisosFrag extends Fragment {
         horaFin.setText(permiso.getHoraFin());
         TextView personaAutorizo = customDialog.findViewById(R.id.tv_persona_autorizo);
         personaAutorizo.setText(permiso.getPersonaAutoriza());
-        TextView descripcion = customDialog.findViewById(R.id.tv_descripcion);
+        TextView descripcion = customDialog.findViewById(R.id.tv_descripcion_r);
         descripcion.setText(permiso.getDesc());
         TextView textoAutorizo = customDialog.findViewById(R.id.textAutoriza);
         if (permiso.getStatus().equals("0")){

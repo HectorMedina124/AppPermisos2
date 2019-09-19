@@ -10,97 +10,123 @@
     tools:context=".DetallesPermisosFragment">
 
 
-    <FrameLayout
-        android:id="@+id/frameLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foregroundGravity="center_vertical|center"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="185dp"
-            android:layout_height="135dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/imagen_usuario"
-            tools:srcCompat="@tools:sample/avatars" />
-    </FrameLayout>
-
     <TextView
         android:id="@+id/textView6"
         style="@style/titulos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="26dp"
         android:text="@string/docente"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toStartOf="@+id/tv_nombre_docente_r"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/im_revisionP" />
+
+    <ImageView
+        android:id="@+id/im_revisionP"
+        android:layout_width="185dp"
+        android:layout_height="135dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="106dp"
+        android:contentDescription="@string/imagen_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/user" />
 
     <TextView
-        android:id="@+id/tv_nombre_docente"
+        android:id="@+id/tv_nombre_docente_r"
         style="@style/texto"
-        android:layout_width="150dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="272dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="19dp"
         android:hint="@string/nombre_del_docente"
+        app:layout_constraintBottom_toTopOf="@+id/tv_tipo_permiso_r"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/im_revisionP" />
 
     <TextView
         android:id="@+id/textView8"
         style="@style/titulos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="26dp"
         android:text="@string/fecha_de_solicitud"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout8"
+        app:layout_constraintEnd_toStartOf="@+id/tv_fecha_solicitud_r"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_tipo_permiso_r" />
 
     <TextView
-        android:id="@+id/tv_fecha_solicitud"
+        android:id="@+id/tv_fecha_solicitud_r"
         style="@style/texto"
-        android:layout_width="150dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="14dp"
+        android:layout_width="169dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="27dp"
         android:hint="@string/fecha_de_solitud"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_docente" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_tipo_permiso_r"
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/textView9"
         style="@style/titulos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="19dp"
         android:text="@string/tipo_de_permiso"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toStartOf="@+id/tv_tipo_permiso_r"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_docente_r" />
 
     <TextView
-        android:id="@+id/tv_tipo_permiso"
+        android:id="@+id/tv_tipo_permiso_r"
         style="@style/texto"
-        android:layout_width="150dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="197dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/tipo_de_permiso_solicitado"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fecha_solicitud" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_docente_r" />
 
     <FrameLayout
         android:id="@+id/frameLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_width="386dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="34dp"
         android:foregroundGravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <TextView
-            android:id="@+id/tv_descripcion"
+            android:id="@+id/tv_descripcion_r"
             style="@style/texto"
-            android:layout_width="250dp"
+            android:layout_width="376dp"
+            android:layout_height="53dp"
             android:layout_gravity="center"
             android:hint="@string/descripcion_del_permiso"
             android:textAlignment="center" />
@@ -109,30 +135,49 @@
     <TextView
         android:id="@+id/textView13"
         style="@style/titulos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/duraci_n_del_permiso"
+        app:layout_constraintEnd_toStartOf="@+id/tv_fecha2_r"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout8" />
 
     <TextView
-        android:id="@+id/tv_periodo"
+        android:id="@+id/tv_fecha1_r"
         style="@style/texto"
         android:layout_width="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="2dp"
         android:hint="@string/periodo_de_duracion_del_permiso"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout8" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/tv_fecha2_r"
+        style="@style/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/periodo_de_duracion_del_permiso"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_fecha1_r" />
 
     <FrameLayout
+        android:id="@+id/frameLayout11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="9dp"
         android:foregroundGravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fecha1_r"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"

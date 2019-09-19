@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/im_revisionP"
                 android:layout_width="95dp"
                 android:layout_height="95dp"
                 android:layout_marginStart="10dp"
@@ -53,7 +53,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/solicitante"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/im_revisionP"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -62,7 +62,7 @@
                 android:layout_width="200dp"
                 android:layout_marginStart="8dp"
                 android:hint="@string/nombre_del_usuario_que_solicita"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/im_revisionP"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
@@ -73,7 +73,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/status"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/im_revisionP"
                 app:layout_constraintTop_toBottomOf="@+id/txtnombreuser" />
 
             <TextView
@@ -120,7 +120,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtfecha" />
 
             <TextView
-                android:id="@+id/tv_tipo_permiso"
+                android:id="@+id/tv_tipo_permiso_r"
                 style="@style/texto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                 android:layout_weight="1"
                 android:hint="@string/fechai"
                 app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@id/tv_tipo_permiso" />
+                app:layout_constraintTop_toBottomOf="@id/tv_tipo_permiso_r" />
 
             <TextView
                 android:id="@+id/textVie"
@@ -265,7 +265,7 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/tv_descripcion"
+                android:id="@+id/tv_descripcion_r"
                 style="@style/texto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
