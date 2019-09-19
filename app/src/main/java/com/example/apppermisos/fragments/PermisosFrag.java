@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -26,19 +29,23 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.AdaptadorPermiso;
 import com.example.apppermisos.R;
+import com.example.apppermisos.Registro_Activity;
 import com.example.apppermisos.objetos.Permiso;
 import com.example.apppermisos.objetos.Persona;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PermisosFrag extends Fragment {
     private Persona per;
     private RequestQueue requestQueue;
     private OnFragmentInteractionListener mListener;
-    RadioButton rb_todos;
+    private RadioButton rb_todos;
     private RadioButton rb_aprobados;
     private RadioButton rb_denegados;
     private RadioButton rb_pendientes;
@@ -58,13 +65,18 @@ public class PermisosFrag extends Fragment {
         super.onCreate(savedInstanceState);
         Handler hn= new Handler();
         if (getArguments() != null) {
+
             per = getArguments().getParcelable("Persona");
+            //Toast.makeText(getActivity(),per.getRfc(), Toast.LENGTH_SHORT).show();
             llenarPermisos("http://puntosingular.mx/app_permisos/ConsultarPermisosHistorial?rfc="+per.getRfc());
+        }else{
+            Toast.makeText(getActivity(),"Argumentos vacios", Toast.LENGTH_SHORT).show();
         }
+
         hn.postDelayed(new Runnable() {
             @Override
             public void run() {
-
+                //Toast.makeText(getActivity(),"TOAST vacio" +per.getPermisos().get(0).getFechaAutorizacion(), Toast.LENGTH_SHORT).show();
             }
         },500);
     }
@@ -96,6 +108,8 @@ public class PermisosFrag extends Fragment {
                             permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
                             permisos.add(permiso);
 
+                            //Toast.makeText(getActivity(),permisos.get(i).toString(), Toast.LENGTH_SHORT).show();
+
                         } catch (JSONException e) {
                             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
@@ -106,15 +120,12 @@ public class PermisosFrag extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
-                    //Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
         requestQueue= Volley.newRequestQueue(getActivity());
             requestQueue.add(jsonArrayRequest);
-
-
         }
 
 
@@ -122,32 +133,37 @@ public class PermisosFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         todosPer = inflater.inflate(R.layout.fragment_permisos, container, false);
+
             rb_todos = todosPer.findViewById(R.id.rb_todos);
             rb_aprobados = todosPer.findViewById(R.id.rb_aprobados);
             rb_denegados = todosPer.findViewById(R.id.rb_denegados);
             rb_pendientes = todosPer.findViewById(R.id.rb_pendientes);
+
             titulo= todosPer.findViewById(R.id.tv_permiso);
+            titulo.setVisibility(View.INVISIBLE);
+
+
             rb_todos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(permisos!=null){
-                    Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), permisos);
-                    lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
-                    lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
-                    lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            //Toast.makeText(getContext(),permisos.get(i).toString(),Toast.LENGTH_SHORT).show();
-                            mostrar(todosPer, permisos.get(i));
-                        }
-                    });
-                }
-                    else {
+                    //Toast.makeText(getActivity(),permisos.get(1).toString(), Toast.LENGTH_SHORT).show();
+                        Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), permisos);
+                        lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
+                        lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
+                        lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                //Toast.makeText(getContext(),permisos.get(i).toString(),Toast.LENGTH_SHORT).show();
+                                mostrar(todosPer, permisos.get(i));
+                            }
+                        });
+                    }else{
                         titulo.setVisibility(View.VISIBLE);
-
                     }
                 }
             });
+
             rb_aprobados.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -162,10 +178,9 @@ public class PermisosFrag extends Fragment {
                             mostrar(todosPer, llenarAprobados(permisos).get(i));
                         }
                     });
-                }
-                else{
-                        titulo.setVisibility(View.VISIBLE);
 
+                }else{
+                        titulo.setVisibility(View.VISIBLE);
                     }
                 }
             });
@@ -183,10 +198,8 @@ public class PermisosFrag extends Fragment {
                             mostrar(todosPer, llenarDenegados(permisos).get(i));
                         }
                     });
-                }
-                    else{
+                }else{
                         titulo.setVisibility(View.VISIBLE);
-
                     }
                 }
             });
@@ -200,12 +213,11 @@ public class PermisosFrag extends Fragment {
                     lv_solicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Toast.makeText(getContext(), llenarPendientes(permisos).get(i).toString(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getContext(), llenarPendientes(permisos).get(i).toString(), Toast.LENGTH_SHORT).show();
                             mostrar(todosPer, llenarPendientes(permisos).get(i));
                         }
                     });
-                }
-                    else {
+                }else {
                         titulo.setVisibility(View.VISIBLE);
                     }
                 }
@@ -268,8 +280,7 @@ public class PermisosFrag extends Fragment {
     }
 
 
-    public void mostrar(View view,Permiso permiso)
-    {
+    public void mostrar(View view,Permiso permiso){
         // con este tema personalizado evitamos los bordes por defecto
         customDialog = new Dialog(getContext(),R.style.Theme_Dialog_Translucent);
         //deshabilitamos el título por defecto
@@ -293,6 +304,10 @@ public class PermisosFrag extends Fragment {
             estatus.setText("Denegado");
         }
 
+        String nom = per.getNombre() +" "+ per.getApellidoPaterno() +" "+ per.getApellidoMaterno();
+
+        TextView nombre = customDialog.findViewById(R.id.txtnombreuser);
+        nombre.setText(nom);
         TextView fechaSolicitud = customDialog.findViewById(R.id.txtfecha);
         fechaSolicitud.setText(permiso.getFechaSolicitud());
         TextView tipoPermiso = customDialog.findViewById(R.id.tv_tipo_permiso);
@@ -312,9 +327,9 @@ public class PermisosFrag extends Fragment {
         TextView textoAutorizo = customDialog.findViewById(R.id.textAutoriza);
         if (permiso.getStatus().equals("0")){
             textoAutorizo.setText("Se solicito autorizacion a: ");
+        }else if(permiso.getStatus().equals("2")){
+            textoAutorizo.setText("Denegado por: ");
         }
-
-
         ((Button) customDialog.findViewById(R.id.aceptar)).setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -322,7 +337,6 @@ public class PermisosFrag extends Fragment {
             {
                 customDialog.dismiss();
                 Toast.makeText(getContext(), R.string.aceptar, Toast.LENGTH_SHORT).show();
-
             }
         });
 

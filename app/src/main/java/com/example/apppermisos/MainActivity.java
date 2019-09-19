@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fm = getSupportFragmentManager();
@@ -106,7 +107,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         int id = item.getItemId();
         if (id == R.id.nav_permain) {
-
+            fragment = new PermisosPendietesFragment();
+            fragmentTransaction = true;
         } else if (id == R.id.nav_per2main) {
             fragment = new PermisosPendientesFrag();
             fragmentTransaction = true;
@@ -123,10 +125,12 @@ public class MainActivity extends AppCompatActivity
             fragment.setArguments(bundle);
             getSupportFragmentManager().beginTransaction().add(R.id.layout_principal,fragment).commit();
         }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 

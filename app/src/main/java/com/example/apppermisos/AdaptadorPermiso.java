@@ -49,6 +49,7 @@ public class AdaptadorPermiso extends ArrayAdapter {
             btn_status.setImageResource(R.drawable.abrobado);
         }else if(permisos.get(position).getStatus().equals("2")){
             btn_status.setImageResource(R.drawable.denegado);
+            tv_autorizo.setText("Denegado por: ");
         }
         return item;
     }
