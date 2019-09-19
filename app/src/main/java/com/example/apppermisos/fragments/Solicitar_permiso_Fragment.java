@@ -100,14 +100,14 @@ public class Solicitar_permiso_Fragment extends Fragment {
         han.postDelayed(new Runnable() {
             @Override
             public void run() {
-              nombres= new ArrayList<String>();
+                nombres= new ArrayList<>();
                 for(int i=0;i<aprobadores.size();i++){
                     nombres.add(aprobadores.get(i).getNombre()+" "+aprobadores.get(i).getApellidoPaterno()+" "+aprobadores.get(i).getApellidoMaterno());
                 }
-                ArrayAdapter<String> items= new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,nombres);
+                ArrayAdapter<String> items= new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,nombres);
                 destinatario.setAdapter(items);
             }
-        },2000);
+        },5000);
 
 
         fechaini.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +189,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
-                aprobadores= new ArrayList<Persona>();
+                aprobadores= new ArrayList<>();
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
