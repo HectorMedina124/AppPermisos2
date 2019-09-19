@@ -3,6 +3,7 @@ package com.example.apppermisos.fragments;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,8 +28,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.apppermisos.DocentesActivity;
+import com.example.apppermisos.Login_Activity;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Persona;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +66,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
     private String rfc2;
     private PermisosFrag.OnFragmentInteractionListener mListener;
     private ArrayList<String> nombres;
+    private View vista;
 
     public Solicitar_permiso_Fragment() {
         // Required empty public constructor
@@ -76,7 +81,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista=inflater.inflate(R.layout.fragment_solicitar_permiso_, container, false);
+        vista=inflater.inflate(R.layout.fragment_solicitar_permiso_, container, false);
         solicitante=vista.findViewById(R.id.txtnombreuser);
         fechaSolicitud=vista.findViewById(R.id.txtfecha);
         tipoPermiso=vista.findViewById(R.id.spinner_tipoper);
@@ -171,7 +176,13 @@ public class Solicitar_permiso_Fragment extends Fragment {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().onBackPressed();
+                //getActivity().onBackPressed();
+                Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
+                Intent activity = new Intent(getContext(), DocentesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("Persona",per);
+                activity.putExtra("Persona1",per);
+                startActivity(activity);
             }
         });
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -221,12 +232,19 @@ public class Solicitar_permiso_Fragment extends Fragment {
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getContext(),"Su solicitud ah sido registrada",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
+                esperar(5);
+                Intent activity = new Intent(getContext(), DocentesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("Persona",per);
+                activity.putExtra("Persona1",per);
+                startActivity(activity);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), "Error al registrar Solicitud "+error.toString(), Toast.LENGTH_SHORT).show();
+                //Snackbar.make(getView(), "Error al registrar solicitud", Snackbar.LENGTH_SHORT).show();
                 correcto=false;
             }
         });
@@ -254,6 +272,14 @@ public class Solicitar_permiso_Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public static void esperar(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }
