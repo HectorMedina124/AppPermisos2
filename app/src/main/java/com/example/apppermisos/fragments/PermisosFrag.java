@@ -65,7 +65,6 @@ public class PermisosFrag extends Fragment {
         super.onCreate(savedInstanceState);
         Handler hn= new Handler();
         if (getArguments() != null) {
-
             per = getArguments().getParcelable("Persona");
             //Toast.makeText(getActivity(),per.getRfc(), Toast.LENGTH_SHORT).show();
             llenarPermisos("http://puntosingular.mx/app_permisos/ConsultarPermisosHistorial?rfc="+per.getRfc());
@@ -107,12 +106,12 @@ public class PermisosFrag extends Fragment {
                             permiso.setStatus(jsonObject.getString("estatus_sol"));
                             permiso.setTipoPermiso(jsonObject.getString("permiso_per"));
                             permisos.add(permiso);
-
                             //Toast.makeText(getActivity(),permisos.get(i).toString(), Toast.LENGTH_SHORT).show();
-
                         } catch (JSONException e) {
-                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
+                            //Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+                            //e.printStackTrace();
+                            titulo= todosPer.findViewById(R.id.tv_permiso);
+                            titulo.setVisibility(View.VISIBLE);
                         }
                     }
                     per.setPermisos(permisos);
@@ -120,7 +119,9 @@ public class PermisosFrag extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+                    titulo= todosPer.findViewById(R.id.tv_permiso);
+                    titulo.setVisibility(View.VISIBLE);
                 }
             });
 
