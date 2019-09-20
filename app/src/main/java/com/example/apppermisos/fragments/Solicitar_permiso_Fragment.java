@@ -177,7 +177,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //getActivity().onBackPressed();
-                Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Se ha cancelado la solicitud",Toast.LENGTH_LONG).show();
                 Intent activity = new Intent(getContext(), DocentesActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("Persona",per);
@@ -195,6 +195,8 @@ public class Solicitar_permiso_Fragment extends Fragment {
         });
         return vista;
     }
+
+
     public void traerAprobadores(String url){
         JsonArrayRequest jsonArrayRequest2= new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
@@ -228,12 +230,13 @@ public class Solicitar_permiso_Fragment extends Fragment {
         requestQueue.add(jsonArrayRequest2);
 
     }
+
+
     public void hacerSolicitud(String url){
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
-                esperar(5);
                 Intent activity = new Intent(getContext(), DocentesActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("Persona",per);
@@ -272,14 +275,6 @@ public class Solicitar_permiso_Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public static void esperar(int segundos){
-        try {
-            Thread.sleep(segundos * 1000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 
 }
