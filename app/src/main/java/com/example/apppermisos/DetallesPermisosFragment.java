@@ -85,6 +85,7 @@ public class DetallesPermisosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 aprobarPermiso("http://puntosingular.mx/app_permisos/modificarStatus?estatus=1&numSol="+num+"");
+                Toast.makeText(getContext(), "El permiso fue aprobado",Toast.LENGTH_SHORT).show();
                 getActivity().getSupportFragmentManager().beginTransaction().remove(getActivity().getSupportFragmentManager().findFragmentById(R.id.layout_principal)).commit();
             }
         });
@@ -92,11 +93,10 @@ public class DetallesPermisosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 denegarPermiso("http://puntosingular.mx/app_permisos/modificarStatus?estatus=2&numSol="+num+"");
+                Toast.makeText(getContext(), "El permiso fue denegado",Toast.LENGTH_SHORT).show();
                 getActivity().getSupportFragmentManager().beginTransaction().remove(getActivity().getSupportFragmentManager().findFragmentById(R.id.layout_principal)).commit();
             }
         });
-
-
         return detallesPermiso;
     }
     public void aprobarPermiso(String url){
