@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.apppermisos.fragments.PermisosPendientesFrag;
 import com.example.apppermisos.fragments.PermisosPendietesFragment;
 //import com.example.apppermisos.fragments.RevisionPermisosFragment;
+import com.example.apppermisos.fragments.cambiarPasswordFrag;
 import com.example.apppermisos.objetos.Persona;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,7 +33,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener,cambiarPasswordFrag.OnFragmentInteractionListener {
     private FragmentManager fm;
     private Fragment fr;
     private Persona per;
@@ -107,16 +108,19 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         int id = item.getItemId();
         if (id == R.id.nav_permain) {
-            fragment = new PermisosPendietesFragment();
+
+        } else if (id == R.id.nav_contraseñaadm) {
+            fragment = new cambiarPasswordFrag();
             fragmentTransaction = true;
-        } else if (id == R.id.nav_per2main) {
-            fragment = new PermisosPendientesFrag();
-            fragmentTransaction = true;
-        }else if(id== R.id.nav_cerrarSesion){
+        }else if(id== R.id.nav_cerrarSesionadm){
             Intent i = new Intent(this,Login_Activity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
-        }else if(id == R.id.nav_contraseña){
+        }else if(id == R.id.nav_per2main){
+            fragment = new PermisosPendientesFrag();
+            fragmentTransaction = true;
 
         }
         if(fragmentTransaction){

@@ -15,6 +15,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -58,12 +59,6 @@ public class PermisosPendientesFrag extends Fragment {
             per = getArguments().getParcelable("Persona");
             obtenerPermisosPendientes("http://puntosingular.mx/app_permisos/ConsultarPermisosPendientes?cve_per="+per.getClave());
         }
-        hn.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getActivity(),permisos.get(0).toString(),Toast.LENGTH_SHORT).show();
-            }
-        },1000);
 
 
     }
@@ -78,20 +73,29 @@ public class PermisosPendientesFrag extends Fragment {
             @Override
             public void run() {
                 Adapter adaptadorPermisos = new AdaptadorPerPen(getContext(), permisos);
-                listaP= permisosP.findViewById(R.id.listPermisosPendientes);
-                listaP.setAdapter((ListAdapter) adaptadorPermisos);
-                listaP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Fragment fragment= new DetallesPermisosFragment();
-                        Bundle b = new Bundle();
-                        b.putParcelable("Persona",per);
-                        b.putInt("indice",i);
-                        fragment.setArguments(b);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_principal,fragment).commit();
-                        Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste "+permisos.get(i), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if(!permisos.isEmpty()) {
+                    listaP = permisosP.findViewById(R.id.listPermisosPendientes);
+                    listaP.setAdapter((ListAdapter) adaptadorPermisos);
+                    listaP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Fragment fragment = new DetallesPermisosFragment();
+                            Bundle b = new Bundle();
+                            b.putParcelable("Persona", per);
+                            b.putInt("indice", i);
+                            fragment.setArguments(b);
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_principal, fragment).commit();
+                            Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste " + permisos.get(i), Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }
+                else {
+                    TextView txtVacio=permisosP.findViewById(R.id.tv_vacio2);
+                    txtVacio.setVisibility(View.VISIBLE);
+
+                }
+
             }
         },500);
         return permisosP;

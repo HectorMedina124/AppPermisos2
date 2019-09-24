@@ -89,8 +89,11 @@ public class Registro_Activity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_SHORT).show();
-
-
+                Intent i = new Intent(getApplicationContext(),Login_Activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override

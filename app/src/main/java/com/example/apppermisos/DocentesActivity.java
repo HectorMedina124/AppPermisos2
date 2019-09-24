@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosFrag;
 import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
+import com.example.apppermisos.fragments.cambiarPasswordFrag;
 import com.example.apppermisos.objetos.Persona;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -22,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DocentesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,PermisosFrag.OnFragmentInteractionListener,Solicitar_permiso_Fragment.OnFragmentInteractionListener,DatePickerDialog.OnDateSetListener{
+        implements NavigationView.OnNavigationItemSelectedListener,PermisosFrag.OnFragmentInteractionListener,Solicitar_permiso_Fragment.OnFragmentInteractionListener,DatePickerDialog.OnDateSetListener,cambiarPasswordFrag.OnFragmentInteractionListener{
     private Persona per;
     private TextView tvNombre;
     private ImageView im;
@@ -99,15 +100,20 @@ public class DocentesActivity extends AppCompatActivity
             select=true;
         }else if(id == R.id.nav_cerrarSesion){
             Intent i = new Intent(this,Login_Activity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            getFragmentManager().popBackStack();
             startActivity(i);
             finish();
         }else if(id == R.id.nav_contraseña){
-
+            fragment= new cambiarPasswordFrag();
+            select=true;
         }
         if(select){
             Bundle bundle= new Bundle();
             bundle.putParcelable("Persona",per);
             fragment.setArguments(bundle);
+            //eliminar fragments anteriores
             getSupportFragmentManager().beginTransaction().replace(R.id.content_Docentes,fragment).commit();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

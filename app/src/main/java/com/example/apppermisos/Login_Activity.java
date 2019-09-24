@@ -113,13 +113,14 @@ public class Login_Activity extends AppCompatActivity {
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             jsonObject = response.getJSONObject(i);
-                           per.setNombre(jsonObject.getString("nom_per"));
+                            per.setNombre(jsonObject.getString("nom_per"));
                             per.setApellidoPaterno(jsonObject.getString("ap_per"));
                             per.setApellidoMaterno(jsonObject.getString("am_per"));
                             per.setClave(jsonObject.get("cve_per").toString());
                             per.setRfc(rfc1);
                             per.setRol(jsonObject.getString("rol_rol"));
                             per.setSexo(jsonObject.getString("sexo_per"));
+                            per.setContraseña(pass.getText().toString());
                             correcto=true;
                             Toast.makeText(Login_Activity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
 

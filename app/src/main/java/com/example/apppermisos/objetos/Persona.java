@@ -13,6 +13,7 @@ public class Persona implements Parcelable {
     private String rfc;
     private String clave;
     private String sexo;
+    private String contraseña;
     private ArrayList<Permiso>Permisos;
 
     protected Persona(Parcel in) {
@@ -23,6 +24,7 @@ public class Persona implements Parcelable {
         rfc = in.readString();
         clave = in.readString();
         sexo = in.readString();
+        contraseña= in.readString();
     }
 
     public static final Creator<Persona> CREATOR = new Creator<Persona>() {
@@ -42,8 +44,16 @@ public class Persona implements Parcelable {
     }
 
 
-public Persona(){
-}
+    public Persona(){}
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public void AgregarPermiso(Permiso permiso){
           this.Permisos.add(permiso);
     }
@@ -114,6 +124,7 @@ public Persona(){
         parcel.writeString(rfc);
         parcel.writeString(clave);
         parcel.writeString(sexo);
+        parcel.writeString(contraseña);
     }
 
     public String getSexo() {

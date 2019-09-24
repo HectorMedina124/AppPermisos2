@@ -169,6 +169,7 @@ public class PermisosFrag extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(permisos!=null){
+                        Toast.makeText(getActivity(),"Entro",Toast.LENGTH_SHORT).show();
                     Adapter adaptadorPermisos = new AdaptadorPermiso(getContext(), llenarAprobados(permisos));
                     lv_solicitudes = todosPer.findViewById(R.id.lv_permisos);
                     lv_solicitudes.setAdapter((ListAdapter) adaptadorPermisos);
