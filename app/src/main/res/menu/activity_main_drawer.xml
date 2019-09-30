@@ -5,13 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_reg_per"
+            android:icon="@drawable/list2"
+            android:title="Registrar permisos" />
+        <item
             android:id="@+id/nav_permain"
             android:icon="@drawable/list2"
-            android:title="Permisos" />
+            android:title="Mis permisos" />
         <item
             android:id="@+id/nav_per2main"
             android:icon="@drawable/list2"
             android:title="Permisos pendientes" />
+        <item
+            android:id="@+id/nav_allPermisos"
+            android:icon="@drawable/list2"
+            android:title="Todos los permisos" />
         <item
             android:id="@+id/nav_contraseñaadm"
             android:icon="@drawable/lock"

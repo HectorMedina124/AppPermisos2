@@ -4,43 +4,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosFrag;
 import com.example.apppermisos.fragments.PermisosPendientesFrag;
-import com.example.apppermisos.fragments.PermisosPendietesFragment;
-//import com.example.apppermisos.fragments.RevisionPermisosFragment;
+import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
+import com.example.apppermisos.fragments.TodosPermisosFragment;
 import com.example.apppermisos.fragments.cambiarPasswordFrag;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-
 import android.view.MenuItem;
-
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener,cambiarPasswordFrag.OnFragmentInteractionListener {
-    private FragmentManager fm;
-    private Fragment fr;
+        implements NavigationView.OnNavigationItemSelectedListener ,PermisosPendientesFrag.OnFragmentInteractionListener,cambiarPasswordFrag.OnFragmentInteractionListener,PermisosFrag.OnFragmentInteractionListener{
     private Persona per;
-    private TextView tvNombre;
-    private TextView cargo;
-    private ImageView im;
-    private TextView puesto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +33,6 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fm = getSupportFragmentManager();
-        fr = fm.findFragmentById(R.id.layout_principal);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -71,12 +53,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        tvNombre= findViewById(R.id.nom_Directivo);
+        TextView tvNombre = findViewById(R.id.nom_Directivo);
         per= getIntent().getParcelableExtra("Persona1");
-        im= findViewById(R.id.img_Dir);
+        ImageView im = findViewById(R.id.img_Dir);
         tvNombre.setText(per.getNombre()+" "+per.getApellidoPaterno()+" "+per.getApellidoMaterno());
 
         if(per.getSexo().equals("F")){
@@ -107,22 +90,34 @@ public class MainActivity extends AppCompatActivity
         boolean fragmentTransaction = false;
         Fragment fragment = null;
         int id = item.getItemId();
-        if (id == R.id.nav_permain) {
 
-        } else if (id == R.id.nav_contraseñaadm) {
+        //si solicita permisos
+        if(id == R.id.nav_reg_per){
+            fragment = new Solicitar_permiso_Fragment();
+            fragmentTransaction = true;
+        }else if (id == R.id.nav_permain) { //ver mis permisos
+            fragment = new PermisosFrag();
+            fragmentTransaction = true;
+        } else if (id == R.id.nav_contraseñaadm) {//cambiar contraseña
             fragment = new cambiarPasswordFrag();
             fragmentTransaction = true;
-        }else if(id== R.id.nav_cerrarSesionadm){
+        }else if(id== R.id.nav_cerrarSesionadm){ //cerrar Sesion
             Intent i = new Intent(this,Login_Activity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
-        }else if(id == R.id.nav_per2main){
+        }else if(id == R.id.nav_per2main){ //Permisos pendientes de autorizacion
             fragment = new PermisosPendientesFrag();
             fragmentTransaction = true;
 
+        }else if(id == R.id.nav_allPermisos){ //Ver todos los permisos del personal
+            fragment = new TodosPermisosFragment();
+            fragmentTransaction = true;
         }
+
+
+
         if(fragmentTransaction){
             Bundle bundle= new Bundle();
             bundle.putParcelable("Persona",per);

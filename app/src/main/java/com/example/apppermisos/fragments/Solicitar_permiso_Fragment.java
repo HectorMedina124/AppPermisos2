@@ -2,7 +2,6 @@ package com.example.apppermisos.fragments;
 
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,12 +28,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.DocentesActivity;
-import com.example.apppermisos.Login_Activity;
 import com.example.apppermisos.MainActivity;
 import com.example.apppermisos.PrefectoInicio;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -285,18 +282,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof PermisosFrag.OnFragmentInteractionListener) {
-            mListener = (PermisosFrag.OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
+   @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
