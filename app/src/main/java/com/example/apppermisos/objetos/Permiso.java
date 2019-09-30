@@ -15,6 +15,15 @@ public class Permiso {
     private String fechaAutorizacion;
     private String tipoPermiso;
     private String personaSolicita;
+    private String rfcSol;
+
+    public String getRfcSol() {
+        return rfcSol;
+    }
+
+    public void setRfcSol(String rfcSol) {
+        this.rfcSol = rfcSol;
+    }
 
     public String getPersonaSolicita() {
         return personaSolicita;
