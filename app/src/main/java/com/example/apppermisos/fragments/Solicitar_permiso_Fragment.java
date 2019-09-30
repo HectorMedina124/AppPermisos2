@@ -30,6 +30,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.DocentesActivity;
 import com.example.apppermisos.Login_Activity;
+import com.example.apppermisos.MainActivity;
+import com.example.apppermisos.PrefectoInicio;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Persona;
 import com.google.android.material.snackbar.Snackbar;
@@ -178,11 +180,25 @@ public class Solicitar_permiso_Fragment extends Fragment {
             public void onClick(View view) {
                 //getActivity().onBackPressed();
                 Toast.makeText(getContext(),"Se ha cancelado la solicitud",Toast.LENGTH_LONG).show();
-                Intent activity = new Intent(getContext(), DocentesActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("Persona",per);
-                activity.putExtra("Persona1",per);
-                startActivity(activity);
+                if(per.getRol().equals("Director") || per.getRol().equals("SubDirector") || per.getRol().equals("Jefe") || per.getRol().equals("Root")){
+                    Intent activity = new Intent(getContext(), MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                } else if (per.getRol().equals("Docente") ||per.getRol().equals("Administrativo")) {
+                    Intent activity = new Intent(getContext(), DocentesActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                }else if(per.getRol().equals("Prefecto")){
+                    Intent activity = new Intent(getContext(), PrefectoInicio.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                }
             }
         });
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -237,11 +253,25 @@ public class Solicitar_permiso_Fragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getContext(),"Su solicitud ha sido registrada",Toast.LENGTH_LONG).show();
-                Intent activity = new Intent(getContext(), DocentesActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("Persona",per);
-                activity.putExtra("Persona1",per);
-                startActivity(activity);
+                if(per.getRol().equals("Director") || per.getRol().equals("SubDirector") || per.getRol().equals("Jefe") || per.getRol().equals("Root")){
+                    Intent activity = new Intent(getContext(), MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                } else if (per.getRol().equals("Docente") ||per.getRol().equals("Administrativo")) {
+                    Intent activity = new Intent(getContext(), DocentesActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                }else if(per.getRol().equals("Prefecto")){
+                    Intent activity = new Intent(getContext(), PrefectoInicio.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
+                }
             }
         }, new Response.ErrorListener() {
             @Override

@@ -5,9 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_permisos_Dia"
+            android:icon="@drawable/list"
+            android:title="Permisos del Dia"/>
+        <item
             android:id="@+id/nav_perp"
             android:icon="@drawable/list2"
-            android:title="Permisos del dia" />
+            android:title="Mis Permisos" />
         <item
             android:id="@+id/nav_SolPer"
             android:icon="@drawable/list2"

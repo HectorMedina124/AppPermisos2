@@ -92,11 +92,13 @@
     <string name="denegados">Denegados</string>
     <string name="pendientes">Pendientes</string>
     <string name="vacio">No se encuentra ningun permiso registrado</string>
-    <string name="Bienvenido">¡Bienvendio!</string>
+    <string name="Bienvenido">¡Bienvenido!</string>
     <string name="vacio2">No tiene solicitudes pendientes</string>
     <string name="vieja_contrasenia">Contraseña actual:</string>
     <string name="nueva_contrasenia">Nueva contraseña:</string>
     <string name="cambiar_contrasenia">Cambiar contraseña</string>
+    <string name="vacio3">No hay permisos para el dia de hoy </string>
+
 
 
     <string name="aceptar">Aceptar</string>

@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.DocentesActivity;
 import com.example.apppermisos.Login_Activity;
 import com.example.apppermisos.MainActivity;
+import com.example.apppermisos.PrefectoInicio;
 import com.example.apppermisos.R;
 import com.example.apppermisos.objetos.Persona;
 
@@ -149,7 +150,7 @@ public class cambiarPasswordFrag extends Fragment {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getActivity().getApplicationContext(),"Cambio exitoso", Toast.LENGTH_SHORT).show();
-                if(per.getRol().equals("Docente")){
+                if(per.getRol().equals("Docente") || per.getRol().equals("Administrativo")){
                     Intent activity = new Intent(getContext(), DocentesActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("Persona",per);
@@ -163,7 +164,14 @@ public class cambiarPasswordFrag extends Fragment {
                     activity.putExtra("Persona1",per);
                     startActivity(activity);
 
+                }  else if(per.getRol().equals("Prefecto")){
+                    Intent activity = new Intent(getContext(), PrefectoInicio.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("Persona",per);
+                    activity.putExtra("Persona1",per);
+                    startActivity(activity);
                 }
+
 
 
             }

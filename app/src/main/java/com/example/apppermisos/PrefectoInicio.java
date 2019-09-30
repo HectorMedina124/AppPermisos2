@@ -1,10 +1,16 @@
 package com.example.apppermisos;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.apppermisos.fragments.PermisosDelDia;
+import com.example.apppermisos.fragments.PermisosFrag;
 import com.example.apppermisos.fragments.PermisosPendietesFragment;
 import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
+import com.example.apppermisos.fragments.cambiarPasswordFrag;
+import com.example.apppermisos.objetos.Persona;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,11 +31,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
+import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PrefectoInicio extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    private FragmentManager fm;
-    private Fragment fr;
+        implements NavigationView.OnNavigationItemSelectedListener,PermisosDelDia.OnFragmentInteractionListener, PermisosFrag.OnFragmentInteractionListener,Solicitar_permiso_Fragment.OnFragmentInteractionListener, DatePickerDialog.OnDateSetListener,cambiarPasswordFrag.OnFragmentInteractionListener{
+    private Persona per;
+    private TextView tvNombre;
+    private ImageView im;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +47,6 @@ public class PrefectoInicio extends AppCompatActivity
         setContentView(R.layout.activity_prefecto_inicio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        fm = getSupportFragmentManager();
-        fr = fm.findFragmentById(R.id.layout_principal);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -70,6 +70,13 @@ public class PrefectoInicio extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.prefecto_inicio, menu);
+        tvNombre= findViewById(R.id.nom_Prefecto);
+        per= getIntent().getParcelableExtra("Persona1");
+        im= findViewById(R.id.imgPrefecto);
+        tvNombre.setText(per.getNombre()+" "+per.getApellidoPaterno()+" "+per.getApellidoMaterno());
+        if(per.getSexo().equals("F")){
+            im.setImageResource(R.drawable.user_mujer);
+        }
         return true;
     }
 
@@ -95,22 +102,43 @@ public class PrefectoInicio extends AppCompatActivity
         int id = item.getItemId();
         boolean fragmentTransaction = false;
         Fragment fragment = null;
-        if (id == R.id.nav_perp) {
-           fragment= new PermisosPendietesFragment();
+        if(id == R.id.nav_permisos_Dia){
+            fragment= new PermisosDelDia();
+            fragmentTransaction=true;
+        }
+        else if (id == R.id.nav_perp) {
+           fragment= new PermisosFrag();
            fragmentTransaction=true;
         } else if (id == R.id.nav_SolPer) {
             fragment= new Solicitar_permiso_Fragment();
             fragmentTransaction=true;
-        }else if(id== R.id.nav_cerrarSesion){
+        }else if(id== R.id.nav_cerrarSesionpre){
             Intent i = new Intent(this,Login_Activity.class);
             startActivity(i);
             finish();
-        }else if(id == R.id.nav_contraseña){
-
+        }else if(id == R.id.nav_contraseñapre){
+            fragment= new cambiarPasswordFrag();
+            fragmentTransaction=true;
         }
-
+        if(fragmentTransaction){
+            Bundle bundle= new Bundle();
+            bundle.putParcelable("Persona",per);
+            fragment.setArguments(bundle);
+            //eliminar fragments anteriores
+            getSupportFragmentManager().beginTransaction().replace(R.id.layout_prefecto,fragment).commit();
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
