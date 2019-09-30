@@ -5,11 +5,6 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,16 +26,11 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apppermisos.AdaptadorPermiso;
 import com.example.apppermisos.R;
-import com.example.apppermisos.objetos.ObjetoAux;
 import com.example.apppermisos.objetos.Permiso;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.tabs.TabLayout;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -59,7 +49,6 @@ public class TodosPermisosFragment extends Fragment {
     private String mParam2;
 
     private RequestQueue requestQueue;
-    private HistorialPermisosGeneralFrag.OnFragmentInteractionListener mListener;
     private RadioButton rb_todos;
     private RadioButton rb_aprobados;
     private RadioButton rb_denegados;
