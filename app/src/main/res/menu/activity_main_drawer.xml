@@ -17,9 +17,13 @@
             android:icon="@drawable/list2"
             android:title="Permisos pendientes" />
         <item
-            android:id="@+id/nav_allPermisos"
+        android:id="@+id/nav_allPermisos"
+        android:icon="@drawable/list2"
+        android:title="Todos los permisos" />
+        <item
+            android:id="@+id/nav_reportes"
             android:icon="@drawable/list2"
-            android:title="Todos los permisos" />
+            android:title="Generar reporte" />
         <item
             android:id="@+id/nav_contraseñaadm"
             android:icon="@drawable/lock"

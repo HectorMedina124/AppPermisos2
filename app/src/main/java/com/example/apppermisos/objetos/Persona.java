@@ -134,5 +134,20 @@ public class Persona implements Parcelable {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidoPaterno='" + apellidoPaterno + '\'' +
+                ", apellidoMaterno='" + apellidoMaterno + '\'' +
+                ", rol='" + rol + '\'' +
+                ", rfc='" + rfc + '\'' +
+                ", clave='" + clave + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", Permisos=" + Permisos +
+                '}';
+    }
 }
 
