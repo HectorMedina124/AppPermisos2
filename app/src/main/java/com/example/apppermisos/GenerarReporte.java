@@ -127,6 +127,7 @@ public class GenerarReporte {
                             pdfPCell = new PdfPCell(new Phrase(row[indexC]));
                             //pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                             //pdfPCell.setFixedHeight(40);
+
                             table.addCell(pdfPCell);
                         }
                        /*for(indexC = 0; indexC<rows.size();indexC++){
