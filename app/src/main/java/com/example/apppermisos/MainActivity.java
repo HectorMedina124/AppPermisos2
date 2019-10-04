@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity
                         1000);
             }
             GenerarReporte gr = new GenerarReporte(MainActivity.this);
-            if(per.getPermisos()!=null){
+
+            if(!per.getPermisos().isEmpty()){
                 gr.obtenerDatos(per);
                 //Toast.makeText(MainActivity.this,"Si hay permisos para hoy"+per.getPermisos(),Toast.LENGTH_LONG).show();
             }else{

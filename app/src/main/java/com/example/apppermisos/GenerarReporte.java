@@ -60,96 +60,97 @@ public class GenerarReporte {
     }
 
     public void obtenerDatos(Persona persona){
-        if (persona != null) {
-            //Toast.makeText(context,persona.toString(),Toast.LENGTH_LONG).show();
-           if( persona.getPermisos()!= null){ //si recuperamos permisos para hoy
-                crearPDF(persona.getPermisos());
-                //Toast.makeText(context,"Si hay permisos"+persona.getPermisos(),Toast.LENGTH_LONG).show();
-           }else{//si no hay ningun permiso para el dia de hoy
-                Toast.makeText(context,"No se tienen permisos registrados para hoy",Toast.LENGTH_LONG).show();
-            }
+        if (!persona.getPermisos().isEmpty()) {//Si hay permisos
+            //Toast.makeText(context,"Si hay permisos OBTENER DATOS",Toast.LENGTH_LONG).show();
+            crearPDF(persona.getPermisos());
         }else{
-            Toast.makeText(context,"Persona vacia",Toast.LENGTH_LONG).show();
+        Toast.makeText(context,"No se tienen permisos registrados para hoy",Toast.LENGTH_LONG).show();
         }
     }
 
 
     public void crearPDF(ArrayList<Permiso> permisos){
-        //si se crearon los renglones de la tabla
-        rows = getRowPermisoS(permisos);
-        if(rows != null){
-            //Toast.makeText(context,"Si se crearon los renglones de la tabla",Toast.LENGTH_LONG).show();
-            Document document = new Document();
-            Calendar c = Calendar.getInstance();
-            String dia = Integer.toString(c.get(Calendar.DATE));
-            String mes = Integer.toString(c.get(Calendar.MONTH)+1);
-            String annio = Integer.toString(c.get(Calendar.YEAR));
+        if(!permisos.isEmpty()){//Si recibimos permisos
+            // Toast.makeText(context,"Si hay permisos CREARPDF",Toast.LENGTH_LONG).show();
+            rows = getRowPermisoS(permisos);
+            if(!rows.isEmpty()){//si los renglones no estan vacios
+                //Toast.makeText(context,"Si se crearon los renglones de la tabla ROWS",Toast.LENGTH_LONG).show();
+                Document document = new Document();
+                Calendar c = Calendar.getInstance();
+                String dia = Integer.toString(c.get(Calendar.DATE));
+                String mes = Integer.toString(c.get(Calendar.MONTH)+1);
+                String annio = Integer.toString(c.get(Calendar.YEAR));
 
-            switch(mes){
-                case "1": mes = "enero"; break;
-                case "2": mes = "febrero"; break;
-                case "3": mes = "marzo"; break;
-                case "4": mes = "abril"; break;
-                case "5": mes = "mayo"; break;
-                case "6": mes = "junio"; break;
-                case "7": mes = "julio"; break;
-                case "8": mes = "agosto"; break;
-                case "9": mes = "septiembre"; break;
-                case "10":mes = "octubre"; break;
-                case "11":mes = "noviembre"; break;
-                case "12":mes = "diciembre"; break;
-            }
+                switch(mes){
+                    case "1": mes = "enero"; break;
+                    case "2": mes = "febrero"; break;
+                    case "3": mes = "marzo"; break;
+                    case "4": mes = "abril"; break;
+                    case "5": mes = "mayo"; break;
+                    case "6": mes = "junio"; break;
+                    case "7": mes = "julio"; break;
+                    case "8": mes = "agosto"; break;
+                    case "9": mes = "septiembre"; break;
+                    case "10":mes = "octubre"; break;
+                    case "11":mes = "noviembre"; break;
+                    case "12":mes = "diciembre"; break;
+                }
 
-            try{
-                File file = crearFichero(NOMBRE_DOCUMENTO+dia+"-"+mes+"-"+annio+".pdf");
-                FileOutputStream ficheroPDF = new FileOutputStream(file.getAbsolutePath());
-                PdfWriter pdfWriter = PdfWriter.getInstance(document,ficheroPDF);
+                try{
+                    File file = crearFichero(NOMBRE_DOCUMENTO+dia+"-"+mes+"-"+annio+".pdf");
+                    FileOutputStream ficheroPDF = new FileOutputStream(file.getAbsolutePath());
+                    PdfWriter pdfWriter = PdfWriter.getInstance(document,ficheroPDF);
 
-                document.open();
-                document.add(new Paragraph("Reportes de permisos\n\n"));
-                document.add(new Paragraph("Fecha de reporte: "+dia+" de "+mes+" del "+annio+"\n\n"));
+                    document.open();
+                    document.add(new Paragraph("Reportes de permisos\n\n"));
+                    document.add(new Paragraph("Fecha de reporte: "+dia+" de "+mes+" del "+annio+"\n\n"));
 
 
-                //Insertamos una tabla
-                try {
-                    paragraph = new Paragraph();
-                    PdfPTable table = new PdfPTable(header.length);
-                    table.setWidthPercentage(100);
-                    PdfPCell pdfPCell;
-                    int indexC = 0;
-                    while(indexC <header.length){
-                        pdfPCell = new PdfPCell((new Phrase(header[indexC++])));
-                        pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                        table.addCell(pdfPCell);
-                    }
-                    for(int indexR = 0; indexR < rows.size();indexR++){
-                        String [] row = rows.get(indexR);
-                       for(indexC = 0; indexC<rows.size();indexC++){
-                            pdfPCell = new PdfPCell(new Phrase(row[indexC]));
-                            //pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                            //pdfPCell.setFixedHeight(40);
+                    //Insertamos una tabla
+                    try {
+                        paragraph = new Paragraph();
+                        PdfPTable table = new PdfPTable(header.length);
+                        table.setWidthPercentage(100);
+                        PdfPCell pdfPCell;
+                        int indexC = 0;
+                        while(indexC <header.length){
+                            pdfPCell = new PdfPCell((new Phrase(header[indexC++])));
+                            pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                             table.addCell(pdfPCell);
                         }
+                        for(int indexR = 0; indexR < rows.size();indexR++){
+                            String [] row = rows.get(indexR);
+                            for(indexC = 0; indexC<rows.size();indexC++){
+                                pdfPCell = new PdfPCell(new Phrase(row[indexC++]));
+                                //pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                                //pdfPCell.setFixedHeight(40);
+                                table.addCell(pdfPCell);
+                            }
                        /*for(indexC = 0; indexC<rows.size();indexC++){
                             table.addCell(row[indexC]);
                         }*/
+                        }
+                        document.add(table);
+                    }catch (Exception e){
+                        Toast.makeText(context,"Error al crear la tabla",Toast.LENGTH_LONG).show();
                     }
-                    paragraph.add(table);
-                    document.add(paragraph);
-                }catch (Exception e){
-                    Toast.makeText(context,"Error al crear la tabla",Toast.LENGTH_LONG).show();
+
+                } catch (DocumentException e) {
+
+                }catch (IOException e){
+
+                }finally {
+                    document.close();
                 }
-
-            } catch (DocumentException e) {
-
-            }catch (IOException e){
-
-            }finally {
-                document.close();
+            }else{//si no se crearon los renglones de la tabla
+                Toast.makeText(context,"No se crearon los renglones de la tabla ROWS",Toast.LENGTH_LONG).show();
             }
-        }else{//si no se crearon los renglones de la tabla
-            Toast.makeText(context,"No se crearon los renglones de la tabla",Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(context,"No se puede generar un reporte vacio",Toast.LENGTH_LONG).show();
         }
+
+
+
 
     }
 
