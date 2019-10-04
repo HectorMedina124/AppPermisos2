@@ -51,7 +51,7 @@ public class GenerarReporte {
     private ArrayList<String[]> rows;
     private ArrayList<String[]> rowSS;
     private PermisosDelDia pdd;
-    private String[] header = {"Solicitante","Fecha de solicitud","Tipo de permiso","Fecha Inicio","Fecha fin","Hora inicio","Hora Fin","Autorizó","Descripcion"};
+    private String[] header = {"Solicitante","Fecha de solicitud","Tipo de permiso","Fecha Inicio","Fecha fin","Hora inicio","Hora Fin","Descripcion"};
 
 
 
@@ -70,9 +70,10 @@ public class GenerarReporte {
 
 
     public void crearPDF(ArrayList<Permiso> permisos){
-        if(!permisos.isEmpty()){//Si recibimos permisos
+        if(!permisos.isEmpty()) {//Si recibimos permisos
             // Toast.makeText(context,"Si hay permisos CREARPDF",Toast.LENGTH_LONG).show();
             rows = getRowPermisoS(permisos);
+
             if(!rows.isEmpty()){//si los renglones no estan vacios
                 //Toast.makeText(context,"Si se crearon los renglones de la tabla ROWS",Toast.LENGTH_LONG).show();
                 Document document = new Document();
@@ -104,41 +105,33 @@ public class GenerarReporte {
                     document.open();
                     document.add(new Paragraph("Reportes de permisos\n\n"));
                     document.add(new Paragraph("Fecha de reporte: "+dia+" de "+mes+" del "+annio+"\n\n"));
-
-
                     //Insertamos una tabla
-                    try {
-                        paragraph = new Paragraph();
-                        PdfPTable table = new PdfPTable(header.length);
-                        table.setWidthPercentage(100);
-                        PdfPCell pdfPCell;
-                        int indexC = 0;
-                        while(indexC <header.length){
-                            pdfPCell = new PdfPCell((new Phrase(header[indexC++])));
-                            pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                            table.addCell(pdfPCell);
-                        }
-                        for(int indexR = 0; indexR < rows.size();indexR++){
-                            String [] row = rows.get(indexR);
-                            for(indexC = 0; indexC<rows.size();indexC++){
-                                pdfPCell = new PdfPCell(new Phrase(row[indexC++]));
-                                //pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                                //pdfPCell.setFixedHeight(40);
-                                table.addCell(pdfPCell);
-                            }
-                       /*for(indexC = 0; indexC<rows.size();indexC++){
-                            table.addCell(row[indexC]);
-                        }*/
-                        }
-                        document.add(table);
-                    }catch (Exception e){
-                        Toast.makeText(context,"Error al crear la tabla",Toast.LENGTH_LONG).show();
+                    paragraph = new Paragraph();
+                    PdfPTable table = new PdfPTable(header.length);
+                    table.setWidthPercentage(100);
+                    PdfPCell pdfPCell;
+                    int indexC = 0;
+                    while(indexC <header.length){
+                        pdfPCell = new PdfPCell((new Phrase(header[indexC++])));
+                        pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                        table.addCell(pdfPCell);
                     }
+                    for(int a = 0; a<rows.size();a++){
+                        String [] r=rows.get(a);
+                        for(int b = 0;b<r.length;b++){
+                            //Toast.makeText(context,""+r.toString(),Toast.LENGTH_LONG).show();
+                            //Log.e("row",""+r[b]);
+                            pdfPCell = new PdfPCell(new Phrase(r[b]));
+                            //pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                            //pdfPCell.setFixedHeight(40);
+                            table.addCell(pdfPCell);
 
-                } catch (DocumentException e) {
-
-                }catch (IOException e){
-
+                        }
+                    }
+                    document.add(table);
+                    Toast.makeText(context,"El documento ha sido generado exitosamente",Toast.LENGTH_LONG).show();
+                }catch (Exception e){
+                    Toast.makeText(context,"Error al crear la tabla",Toast.LENGTH_LONG).show();
                 }finally {
                     document.close();
                 }
@@ -146,12 +139,8 @@ public class GenerarReporte {
                 Toast.makeText(context,"No se crearon los renglones de la tabla ROWS",Toast.LENGTH_LONG).show();
             }
         }else{
-            Toast.makeText(context,"No se puede generar un reporte vacio",Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "No se puede generar un reporte vacio", Toast.LENGTH_LONG).show();
         }
-
-
-
-
     }
 
     public File crearFichero(String nombreFichero){
@@ -191,7 +180,6 @@ public class GenerarReporte {
                         permisos.get(i).getFechaFin(),
                         permisos.get(i).getHoraI(),
                         permisos.get(i).getHoraFin(),
-                        permisos.get(i).getPersonaAutoriza(),
                         permisos.get(i).getDesc()});
             }
         }else {
@@ -199,5 +187,6 @@ public class GenerarReporte {
         }
         return rowSS;
     }
+
 
 }
