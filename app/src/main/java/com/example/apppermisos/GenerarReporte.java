@@ -109,6 +109,7 @@ public class GenerarReporte {
                 document.add(new Paragraph("Reportes de permisos\n\n"));
                 document.add(new Paragraph("Fecha de reporte: "+dia+" de "+mes+" del "+annio+"\n\n"));
 
+
                 //Insertamos una tabla
                 try {
                     paragraph = new Paragraph();
