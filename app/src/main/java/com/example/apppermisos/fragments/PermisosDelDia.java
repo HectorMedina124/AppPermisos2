@@ -1,5 +1,6 @@
 package com.example.apppermisos.fragments;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,9 +11,12 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,6 +47,7 @@ public class PermisosDelDia extends Fragment {
     private ArrayList<Permiso>permisos;
     private RequestQueue requestQueue;
     private View permisosD;
+    private Dialog customDialog = null;
     private ListView listaP;
     public PermisosDelDia() {
         // Required empty public constructor
@@ -76,7 +81,9 @@ public class PermisosDelDia extends Fragment {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                            Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste " + permisos.get(i), Toast.LENGTH_SHORT).show();                        }
+                            //Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste " + permisos.get(i), Toast.LENGTH_SHORT).show();
+                            mostrar(permisosD, permisos.get(i));
+                        }
                     });
                 }
                 else {
@@ -163,5 +170,59 @@ public class PermisosDelDia extends Fragment {
 
         requestQueue= Volley.newRequestQueue(getActivity());
         requestQueue.add(jsonArrayRequest);
+    }
+
+    public void mostrar(View view,Permiso permiso){
+        // con este tema personalizado evitamos los bordes por defecto
+        customDialog = new Dialog(getContext(),R.style.Theme_Dialog_Translucent);
+        //deshabilitamos el título por defecto
+        customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //obligamos al usuario a pulsar los botones para cerrarlo
+        customDialog.setCancelable(false);
+        //establecemos el contenido de nuestro dialog
+        customDialog.setContentView(R.layout.cuadro_de_dialogo_dia);
+
+        ImageView imagen = customDialog.findViewById(R.id.im_revisionP);
+        TextView titulo = (TextView) customDialog.findViewById(R.id.titulo);
+        titulo.setText("Detalles permiso");
+        TextView solicitante = customDialog.findViewById(R.id.txtnombreuser);
+        //solicitante = permiso.getSolicitante;
+        TextView estatus = customDialog.findViewById(R.id.tv_status);
+        if(permiso.getStatus().equals("0")){
+            estatus.setText("Pendiente");
+        }else if(permiso.getStatus().equals("1")){
+            estatus.setText("Aceptado");
+        }else if(permiso.getStatus().equals("2")){
+            estatus.setText("Denegado");
+        }
+
+
+        TextView nombre = customDialog.findViewById(R.id.txtnombreuser);
+        nombre.setText(permiso.getPersonaSolicita());
+        TextView fechaSolicitud = customDialog.findViewById(R.id.txtfecha);
+        fechaSolicitud.setText(permiso.getFechaSolicitud());
+        TextView tipoPermiso = customDialog.findViewById(R.id.tv_tipo_permiso_r);
+        tipoPermiso.setText(permiso.getTipoPermiso());
+        TextView fechaInicio = customDialog.findViewById(R.id.tv_fecha_inicio);
+        fechaInicio.setText(permiso.getFechaInicio());
+        TextView fechaFin = customDialog.findViewById(R.id.tv_fecha_fin);
+        fechaFin.setText(permiso.getFechaFin());
+        TextView horaInicio = customDialog.findViewById(R.id.tv_hora_inicio);
+        horaInicio.setText(permiso.getHoraI());
+        TextView horaFin = customDialog.findViewById(R.id.tv_hora_fin);
+        horaFin.setText(permiso.getHoraFin());
+        TextView descripcion = customDialog.findViewById(R.id.tv_descripcion_r);
+        descripcion.setText(permiso.getDesc());
+        ((Button) customDialog.findViewById(R.id.aceptar)).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view)
+            {
+                customDialog.dismiss();
+                //Toast.makeText(getContext(), R.string.aceptar, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        customDialog.show();
     }
 }

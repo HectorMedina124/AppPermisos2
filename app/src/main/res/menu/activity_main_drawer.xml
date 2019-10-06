@@ -22,7 +22,7 @@
         android:title="Todos los permisos" />
         <item
             android:id="@+id/nav_reportes"
-            android:icon="@drawable/list2"
+            android:icon="@drawable/pdf"
             android:title="Generar reporte" />
         <item
             android:id="@+id/nav_contraseñaadm"

@@ -7,14 +7,9 @@ import android.os.Bundle;
 
 import com.example.apppermisos.fragments.PermisosDelDia;
 import com.example.apppermisos.fragments.PermisosFrag;
-import com.example.apppermisos.fragments.PermisosPendietesFragment;
 import com.example.apppermisos.fragments.Solicitar_permiso_Fragment;
 import com.example.apppermisos.fragments.cambiarPasswordFrag;
 import com.example.apppermisos.objetos.Persona;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -28,7 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
 import android.widget.DatePicker;

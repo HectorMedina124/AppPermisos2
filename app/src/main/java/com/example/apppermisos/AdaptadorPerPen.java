@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.apppermisos.objetos.Permiso;
@@ -30,16 +32,12 @@ public class AdaptadorPerPen extends ArrayAdapter {
 
         LayoutInflater inflater = LayoutInflater.from(contexto);
         item = inflater.inflate(R.layout.item_permisos_pendientes, null);
-
-
+        ImageView iv = item.findViewById(R.id.btn_status);
         TextView usuario_solicito= item.findViewById(R.id.tv_usuario_sol);
         //usuario_solicito.setText(permisos.get(position).);
         TextView tipo_per = item.findViewById(R.id.tv_tipo_per);
         tipo_per.setText(permisos.get(position).getTipoPermiso());
         usuario_solicito.setText(permisos.get(position).getPersonaSolicita());
-
-
-
         return item;
     }
 
