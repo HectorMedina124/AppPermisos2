@@ -127,7 +127,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
                     public void onDateSet(DatePicker datePicker, int anio, int mes, int dia) {
                         String fechaelegida="";
                         fechaelegida+=""+anio;
-                        if(mes<10) {
+                        if(mes<9) {
                             fechaelegida+="-0"+(mes+1);
                         }else{
                             fechaelegida+="-"+(mes+1);
@@ -156,7 +156,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
                     public void onDateSet(DatePicker datePicker, int anio, int mes, int dia) {
                         String fechaelegida="";
                         fechaelegida+=""+anio;
-                        if(mes<10) {
+                        if(mes<9) {
                             fechaelegida+="-0"+(mes+1);
                         }else{
                             fechaelegida+="-"+(mes+1);
