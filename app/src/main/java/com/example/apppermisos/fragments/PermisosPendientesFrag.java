@@ -85,7 +85,7 @@ public class PermisosPendientesFrag extends Fragment {
                             b.putInt("indice", i);
                             fragment.setArguments(b);
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_principal, fragment).commit();
-                            Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste " + permisos.get(i), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getActivity().getApplicationContext(), "Seleccionaste " + permisos.get(i), Toast.LENGTH_SHORT).show();
 
                         }
                     });

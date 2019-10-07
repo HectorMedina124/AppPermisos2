@@ -61,21 +61,18 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-
         permisos = new ArrayList<>();
         obtenerPermisos("http://puntosingular.mx/app_permisos/PermisosDelDia.php");
+
+
+
+
 
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
 
@@ -146,7 +143,10 @@ public class MainActivity extends AppCompatActivity
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,},
                         1000);
             }
+
+
             GenerarReporte gr = new GenerarReporte(MainActivity.this);
+
 
             if(!per.getPermisos().isEmpty()){
                 gr.obtenerDatos(per);

@@ -48,12 +48,7 @@ public class DocentesActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
     @Override
@@ -132,4 +127,5 @@ public class DocentesActivity extends AppCompatActivity
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
     }
+
 }

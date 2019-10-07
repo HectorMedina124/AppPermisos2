@@ -151,7 +151,7 @@ public class Registro_Activity extends AppCompatActivity {
         StringRequest stringRequest= new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),response+" "+existe, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),response+" "+existe, Toast.LENGTH_SHORT).show();
 
                 if(response.equals("1")){
                     existe=true;
@@ -174,5 +174,6 @@ public class Registro_Activity extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
 }
 
