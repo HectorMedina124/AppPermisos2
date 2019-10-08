@@ -203,7 +203,7 @@ public class Solicitar_permiso_Fragment extends Fragment {
             public void onClick(View view) {
                 int aprobador=Integer.parseInt(destinatario.getSelectedItemId()+"");
                 rfc2=aprobadores.get(aprobador).getClave();
-                hacerSolicitud("http://puntosingular.mx/app_permisos/hacersolicitud?rfcsolicitante="+per.getRfc()+"&fechaini="+fechaini.getText().toString()+"&fechafin="+fechafin.getText().toString()+"&horaI="+horaInicio.getSelectedItem().toString().substring(0,2)+":"+minutoInicio.getSelectedItem().toString()+":00"+"&horaF="+horaFin.getSelectedItem().toString().substring(0,2)+":"+minutoFin.getSelectedItem().toString()+":00"+"&fechasolicitud=curdate()&fechaAprobacion=null&cveAutoriza="+rfc2+"&tipopermiso="+(tipoPermiso.getSelectedItemId()+1)+"&descripcion="+descripcion.getText().toString()+"");
+                hacerSolicitud("http://puntosingular.mx/app_permisos/hacersolicitud?rfcsolicitante="+per.getRfc()+"&fechaini="+fechaini.getText().toString()+"&fechafin="+fechafin.getText().toString()+"&horaI="+horaInicio.getSelectedItem().toString().substring(0,2)+":"+minutoInicio.getSelectedItem().toString()+":00"+"&horaF="+horaFin.getSelectedItem().toString().substring(0,2)+":"+minutoFin.getSelectedItem().toString()+":00"+"&fechasolicitud="+fechaSolicitud.getText().toString()+"()&fechaAprobacion=null&cveAutoriza="+rfc2+"&tipopermiso="+(tipoPermiso.getSelectedItemId()+1)+"&descripcion="+descripcion.getText().toString()+"");
             }
         });
         return vista;
